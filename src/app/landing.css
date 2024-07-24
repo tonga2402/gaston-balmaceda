@@ -1,0 +1,222 @@
+:root {
+  --primary-color: rgba(10, 235, 140, 1);
+  --secondary-color: rgba(210, 255, 236, 1);
+  --header-color: rgba(5, 42, 45, 1);
+  --fotter-color: rgba(21, 24, 23, 1);
+}
+
+* {
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin-left: 0;
+  margin-top: 0;
+  background-image: url('../app/UI-KIT/ImgLandingPage.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: var(--header-color);
+  height: 64px;
+}
+
+.button_google {
+  background-color: var(--header-color);
+  border-style: none;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: var(--primary-color);
+}
+
+.button_google:hover {
+  color: black;
+  background-color: var(--primary-color);
+  border-color: black;
+  cursor: pointer;
+}
+
+
+.button_responsive {
+  background-color: var(--primary-color);
+  border-style: none;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: black;
+}
+
+.button_responsive:hover {
+  color: var(--primary-color);
+  background-color: var(--header-color);
+  border-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.footer_container {
+  position: absolute;
+  bottom: 0;
+  padding: 10px 15px;
+  background-color: var(--fotter-color);
+  height: 64px;
+  width: 100%;
+  color: var(--primary-color);
+}
+
+.footer_container h3 {
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.main_container{
+  width: 400px;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+.main_container p {
+  line-height: 100%;
+  color: white;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.line_main{
+  background-color: var(--primary-color);
+  width: 25px;
+  height: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: none;
+}
+.main_container h2 {
+  letter-spacing: 1px;
+  margin-top: 0;
+  color: var(--primary-color);
+  font-size: 34px;
+  font-weight: 300;
+}
+
+.main_fixed{
+  position: absolute;
+  bottom: 64px;
+  border-radius: 30px 30px 0 0;
+  background-color: var(--primary-color);
+  height: 148px;
+  width: 100%;
+}
+
+.card_container{
+  background-color:white ;
+  width: 500px;
+  height: 246px;
+  border-radius: 30px;
+  padding: 30px;
+}
+.card_container h1{
+  margin: 0px;
+  font-size: 38px;
+  font-weight: 500;
+}
+.card_container p{
+  margin: 3px;
+  font-size: 20px;
+  font-weight: 350;
+}
+
+.card_container hr{
+  background-color: var(--primary-color);
+  height: 2px;
+}
+
+.card_landing_section {
+  margin-top: 90px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.card_landing_container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+@media screen and (max-width: 834px) {
+  body {
+      background-image: url('../app/UI-KIT/pexels-cottonbro-4009024 1.png');
+  }
+  .main_fixed{
+      height: 450px;
+  }
+  .card_landing_section {
+      margin-top: 230px;
+  }
+  .main_container{
+      margin-top: 10%;
+  }
+  .card_container h1{
+      margin: 5px;
+      font-size: 35px;
+  }
+  .card_container p{
+      margin: 3px;
+      font-size: 20px;
+  }
+}
+@media screen and (max-width: 390px) {
+  body {
+      background-image: url('../app/UI-KIT/MobileIMG.png');
+      background-position: top;
+      background-size: contain ;
+  }
+  .footer_container{
+      text-align: center;
+  }
+  .main_container{
+      width: 190px;
+  }
+  .main_container p{
+      font-size: 27px;
+  }
+  .main_container h2 {
+      font-size: 20px;
+      width: 155px;
+  }
+  .line_main{
+      display:inline-block;
+  }
+  .main_fixed{
+      height: 320px;
+  }
+  .card_container{
+      width: 354px;
+      height: 190px;
+      padding: 20px;
+  }
+  .card_landing_section {
+      margin-top: 115px;
+  }
+  .card_container h1{
+      margin: 0px;
+      font-size: 28px;
+  }
+  .card_container p{
+      margin: 0px;
+      font-size: 16px;
+  }
+}
