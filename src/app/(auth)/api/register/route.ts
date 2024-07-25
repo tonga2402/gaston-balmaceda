@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 export async function POST(request: Request) {
   const { data } = await request.json();
 
@@ -11,8 +13,8 @@ export async function POST(request: Request) {
     });
     const user = await res.json();
 
-    return new Response(JSON.stringify(user));
+    return NextResponse.json(user);
   } catch (error) {
-    return new Response(JSON.stringify(error));
+    return NextResponse.json(error);
   }
 }

@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   const { password, email } = await request.json();
@@ -14,16 +15,16 @@ export async function POST(request: Request) {
     });
     const token = await res.json();
 
-    cookies().set('Auth', JSON.stringify(token) ,{
+    cookies().set('Auth', token ,{
       httpOnly:true,
       secure: true,
       sameSite: 'strict'
     })
 
-    return new Response(JSON.stringify(token));
-    
+    return NextResponse.json(token);
+
   } catch (error) {
-    return new Response(JSON.stringify(error));
+    return NextResponse.json(error);
     
   }
 

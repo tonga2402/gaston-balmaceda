@@ -49,7 +49,8 @@ const FormPassword = () => {
     }
     setServerError(null);
     localStorage.removeItem("email");
-    router.push("/dashboard");
+    // router.push("/dashboard");
+    console.log(auth)
     router.refresh();
     return auth;
   };
