@@ -1,5 +1,5 @@
-"use client";
-import { useEffect, useState } from "react";
+import { jwtDecode, JwtPayload } from "jwt-decode";
+import { cookies } from "next/headers";
 
 type userType = {
   id: number;
@@ -10,30 +10,36 @@ type userType = {
   lastname: string;
 };
 
-const UserHeader = () => {
-  const [user, setUser] = useState<userType | null>(null);
+export default async function UserHeader () {
 
-  useEffect(() => {
-    const userFech = async () => {
-      const dataUser = await fetch("api/user");
-      const data = await dataUser.json();
-      setUser(data);
-    };
-    userFech();
-  }, []);
+  const cookie = cookies();
+  const token = cookie.get("Auth")?.value;
+  const user = jwtDecode<JwtPayload>(token as string) ;
+  const userId = user.username as number;
 
-  console.log(user);
+  const res = await fetch(
+    `https://digitalmoney.digitalhouse.com/api/users/${userId}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${token?.replace(/['"]+/g, "")}`,
+      },
+    }
+  );
+  const data : userType = await res.json();
+
   return (
     <>
       <div className="avatar_logo">
-        {user?.firstname.substring(0, 1)?.toUpperCase()}
-        {user?.lastname.substring(0, 1)?.toUpperCase()}
+        {data?.firstname.substring(0, 1)?.toUpperCase()}
+        {data?.lastname.substring(0, 1)?.toUpperCase()}
       </div>
       <p>
-        Hola, {user?.firstname} {user?.lastname}
+        Hola, {(data?.firstname).toUpperCase()} {(data?.lastname).toUpperCase()}
       </p>
     </>
   );
 };
 
-export default UserHeader;
+
