@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import React from 'react'
+import LogoutButton from './LogoutButton';
 
 const Navbar = () => {
+
   return (
     <div className="navbar_container">
       <div className="links_container">
@@ -23,9 +25,7 @@ const Navbar = () => {
         <Link className="link" href={""}>
           <span>Tarjetas</span>
         </Link>
-        <Link className="link" href={""}>
-          <span>Cerrar sesión</span>
-        </Link>
+        <LogoutButton/>
       </div>
     </div>
   );
