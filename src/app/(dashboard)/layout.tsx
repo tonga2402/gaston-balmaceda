@@ -12,9 +12,7 @@ export default function DashboardLayout({
   return (
     <html>
       <body>
-        <Suspense>
-          <HeaderDashboard />
-        </Suspense>
+        <HeaderDashboard />
         <Navbar />
         {children}
         <Footer />

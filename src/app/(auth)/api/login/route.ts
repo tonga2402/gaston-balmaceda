@@ -15,10 +15,12 @@ export async function POST(request: Request) {
     });
     const token = await res.json();
 
-    cookies().set('Auth', token ,{
+    console.log(token.token)
+
+    cookies().set('Auth',JSON.stringify (token.token) ,{
       httpOnly:true,
       secure: true,
-      sameSite: 'strict'
+      sameSite: 'none'
     })
 
     return NextResponse.json(token);

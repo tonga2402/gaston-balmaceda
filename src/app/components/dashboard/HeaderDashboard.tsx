@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/app/UI-KIT/LogoLandingPage.png";
+import UserHeader from "./UserHeader";
 
 
 const HeaderDashboard = () => {
-
   return (
     <div className="header_container">
       <div>
@@ -13,8 +13,7 @@ const HeaderDashboard = () => {
         </Link>
       </div>
       <div className="avatar_container">
-        <div className="avatar_logo">MB</div>
-        <p>Hola, Mauricio Brito</p>
+        <UserHeader />
       </div>
     </div>
   );
