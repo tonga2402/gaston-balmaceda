@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/app/UI-KIT/LogoLandingPage.png";
 import UserHeader from "./UserHeader";
-
+import { Suspense } from "react";
 
 const HeaderDashboard = () => {
   return (
@@ -13,7 +13,9 @@ const HeaderDashboard = () => {
         </Link>
       </div>
       <div className="avatar_container">
-        <UserHeader />
+        <Suspense fallback={<p>cargando</p>}>
+          <UserHeader />
+        </Suspense>
       </div>
     </div>
   );

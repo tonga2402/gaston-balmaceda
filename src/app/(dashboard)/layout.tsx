@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import HeaderDashboard from "../components/dashboard/HeaderDashboard";
 import Navbar from "../components/dashboard/Navbar";
 import Footer from "../components/landingPage/Footer";

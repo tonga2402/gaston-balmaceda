@@ -10,11 +10,10 @@ type userType = {
   lastname: string;
 };
 
-export default async function UserHeader () {
-
+export default async function UserHeader() {
   const cookie = cookies();
   const token = cookie.get("Auth")?.value;
-  const user = jwtDecode<JwtPayload>(token as string) ;
+  const user = jwtDecode<JwtPayload>(token as string);
   const userId = user.username as number;
 
   const res = await fetch(
@@ -27,7 +26,11 @@ export default async function UserHeader () {
       },
     }
   );
-  const data : userType = await res.json();
+  const data: userType = await res.json();
+  
+  if (!data.firstname) {
+    return <></>;
+  }
 
   return (
     <>
@@ -40,6 +43,4 @@ export default async function UserHeader () {
       </p>
     </>
   );
-};
-
-
+}
