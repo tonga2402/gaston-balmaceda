@@ -42,7 +42,7 @@ export default async function UserHeader() {
       <p>
         Hola,
       </p>
-      <Link className="link_dashboard" href={'/dashboard'}> {(data?.firstname).toUpperCase()} {(data?.lastname).toUpperCase()}</Link>
+      <Link className="link_dashboard" href={'/dashboard'}>{(data?.firstname).toUpperCase()} {(data?.lastname).toUpperCase()}</Link>
     </>
   );
 }

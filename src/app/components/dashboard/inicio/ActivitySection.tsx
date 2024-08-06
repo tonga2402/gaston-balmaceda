@@ -1,26 +1,36 @@
 import Link from "next/link";
-import React from "react";
 import { IoArrowForwardOutline } from "react-icons/io5";
+import CardActivity from "./CardActivity";
+import { cookies } from "next/headers";
+import Activity from "./Activity";
 
-const ActivitySection = () => {
+type AccountType = {
+  alias: "string";
+  available_amount: number;
+  cvu: "string";
+  id: number;
+  user_id: number;
+};
+
+export default async function ActivitySection() {
+  const cookie = cookies();
+  const authToken = cookie.get("Auth")?.value;
+  const token = authToken?.replace(/['"]+/g, "");
+
+  const res = await fetch(`https://digitalmoney.digitalhouse.com/api/account`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `${token}`,
+    },
+  });
+  const data: AccountType = await res.json();
+
   return (
     <section>
       <div className="container_activity">
         <h5>Tu actividad</h5>
-        <div>
-          <hr />
-          <div className="card_activity">
-            <div className="card_container">
-              <div className="circle_activity"></div>
-              <h5>Trasferiste a Rodrigo</h5>
-            </div>
-            <div className="div_price">
-              <h5>-$ 1265,57</h5>
-              <h6>sabado</h6>
-            </div>
-          </div>
-          <hr />
-        </div>
+        <Activity token={token ? token : ""} accountId={data.id} />
         <div className="div_arrow">
           <h5>Ver toda tu activida</h5>
           <Link href={""} style={{ color: "black" }}>
@@ -30,6 +40,4 @@ const ActivitySection = () => {
       </div>
     </section>
   );
-};
-
-export default ActivitySection;
+}
