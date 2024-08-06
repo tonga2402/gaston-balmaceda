@@ -37,7 +37,7 @@ body{
 }
 
 .footer_container {
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     padding: 10px 15px;
     background-color: var(--fotter-color);
@@ -73,6 +73,11 @@ body{
     text-decoration: none;
 }
 
+.link_dashboard{
+    text-decoration: none;
+    color: var(--dash-color);
+}
+
 .link:focus span{
     font-weight: 600;
 }
@@ -95,4 +100,140 @@ body{
 
 .avatar_container p{
     color: white;
+}
+
+.container_initialPage{
+    position: absolute;
+    top: 100px;
+    left: 350px;
+    right: 5%;
+    bottom: 20px;
+    max-width: 1000px;
+}
+
+.container_section{
+    background-color: var(--header-color);
+    border-radius: 8px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.48);
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section_link{
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+}
+
+.container_section h4{
+    color: white;
+    font-weight: 500;
+}
+
+.container_section h2{
+    color: white;
+    border: solid 2px var(--primary-color);
+    border-radius: 25px;
+    padding: 5px 15px;
+    max-width: 200px;
+    margin-top: 0;
+    margin-left: -10px;
+}
+
+.container_service{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 20px;
+}
+.button_service{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.28);
+    width: 100%;
+    height: 100px;
+}
+
+.button_link{
+    color: black;
+    text-decoration: none;
+    font-weight:500;
+    font-size: 20px;
+}
+.container_search{
+    margin-top: 20px;
+    height: 50px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.28);
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: grey;
+    gap: 3px;
+}
+
+.container_search input{
+    width: 100%;
+    outline: none;
+}
+
+.container_activity{
+    background-color: white;
+    padding: 20px 35px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.28);
+}
+
+.container_activity hr{
+    border: 1px solid var(--input-grey);
+}
+
+.card_activity{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card_container{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.card_container h5{
+    color: grey;
+}
+.circle_activity{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+
+.div_price{
+    display: flex;
+    flex-direction: column;
+    align-items:end;
+}
+
+.div_price h5{
+    margin: 0;
+}
+.div_price h6{
+    color: grey;
+    margin: 0;
+}
+
+.div_arrow{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

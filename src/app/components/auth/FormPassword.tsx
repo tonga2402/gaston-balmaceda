@@ -49,7 +49,7 @@ const FormPassword = () => {
     }
     setServerError(null);
     localStorage.removeItem("email");
-    router.push("/dashboard");
+    router.push("/dashboard/inicio");
     console.log(auth);
     router.refresh();
     return auth;

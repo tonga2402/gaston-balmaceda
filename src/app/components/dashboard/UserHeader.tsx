@@ -1,5 +1,6 @@
 import { jwtDecode, JwtPayload } from "jwt-decode";
 import { cookies } from "next/headers";
+import Link from "next/link";
 
 type userType = {
   id: number;
@@ -39,8 +40,9 @@ export default async function UserHeader() {
         {data?.lastname.substring(0, 1)?.toUpperCase()}
       </div>
       <p>
-        Hola, {(data?.firstname).toUpperCase()} {(data?.lastname).toUpperCase()}
+        Hola,
       </p>
+      <Link className="link_dashboard" href={'/dashboard'}> {(data?.firstname).toUpperCase()} {(data?.lastname).toUpperCase()}</Link>
     </>
   );
 }
