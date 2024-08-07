@@ -237,3 +237,64 @@ body{
     align-items: center;
     justify-content: space-between;
 }
+
+.container_perfil{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.card_perfil{
+    display: flex;
+}
+.card_perfil label{
+    width: 200px;
+}
+.card_input{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: grey;
+}
+
+.container_gestion{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 120px;
+    background-color: var(--primary-color);
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.48);
+}
+
+.container_alias{
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.48);
+    background-color: var(--header-color);
+    border-radius: 8px;
+    color: white;
+    padding: 20px 30px 10px;
+    margin-top: 20px;
+}
+.card_alias {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.card_alias h3{
+    color: var(--primary-color);
+    margin: 0;
+}
+.card_alias p{
+    margin: 0;
+}
+
+
+
+
+
+
+
