@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import React from "react";
-import { IoCopyOutline } from "react-icons/io5";
+import CardAlias from "./CardAlias";
 
 type aliasType = {
   alias: string;
@@ -30,24 +30,7 @@ export default async function AliasSection() {
           Copia tu cvu o alias para ingresar o transferir dinero desde otra
           cuenta
         </h4>
-        <div className="card_alias">
-          <div>
-            <h3>CVU</h3>
-            <p>{data.cvu}</p>
-          </div>
-          <IoCopyOutline
-            style={{ fontSize: "25px", color: "var(--primary-color)" }}
-          />
-        </div>{" "}
-        <div className="card_alias">
-          <div>
-            <h3>Alias</h3>
-            <p>{data.alias}</p>
-          </div>
-          <IoCopyOutline
-            style={{ fontSize: "25px", color: "var(--primary-color)" }}
-          />
-        </div>
+      <CardAlias cvu={`${data.cvu}`} alias={`${data.alias}`}/>
       </div>
     </section>
   );
