@@ -13,7 +13,8 @@ type userType = {
 
 export default async function UserHeader() {
   const cookie = cookies();
-  const token = cookie.get("Auth")?.value;
+  const tokenValue = cookie.get("Auth")?.value;
+  const token = tokenValue?.replace(/['"]+/g, "")
   const user = jwtDecode<JwtPayload>(token as string);
   const userId = user.username as number;
 
@@ -23,7 +24,7 @@ export default async function UserHeader() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `${token?.replace(/['"]+/g, "")}`,
+        Authorization: `${token}`,
       },
     }
   );
