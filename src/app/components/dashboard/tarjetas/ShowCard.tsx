@@ -4,7 +4,6 @@ import Card from './Card'
 const ShowCard = () => {
   return (
     <>
-    <Card/>
     </>
   )
 }
