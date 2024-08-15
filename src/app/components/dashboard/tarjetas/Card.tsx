@@ -1,4 +1,5 @@
 import React from "react";
+import DeleteCardButton from "./DeleteCardButton";
 
 type CardTypeProps = {
   token: string;
@@ -39,7 +40,7 @@ export default async function Card(cardData: CardTypeProps) {
               <h5>Terminada en {(data1.number_id).toString().slice(12)} </h5>
             </div>
             <div className="div_price">
-              <button>Eliminar</button>
+              <DeleteCardButton token={cardData.token} accountId={data1.account_id} cardId={data1.id} />
             </div>
           </div>
           <hr />

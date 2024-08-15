@@ -12,7 +12,7 @@ const NewCard = () => {
             <div className="add_newcard">+</div>
             <h3>Nueva tarjeta</h3>
         </div>
-        <Link href={""} style={{ color: "var(--primary-color)" }}>
+        <Link href={'tarjetas/nuevatarjeta'} style={{ color: "var(--primary-color)" }}>
             <IoArrowForwardOutline style={{ fontSize: "25px" }} />
           </Link>
         </div>
