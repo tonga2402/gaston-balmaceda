@@ -358,6 +358,88 @@ body{
     box-shadow: 3px 3px 8px -4px rgba(0,0,0,0.38);
 }
 
+.container_filter{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
 
+.container_filterButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 8px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.28);
+    padding: 0px 20px;
+    gap: 20px;
 
+}
 
+.container_filter_search{
+    margin-top: 20px;
+    height: 50px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.28);
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: grey;
+    gap: 3px;
+}
+
+.container_filter_search input{
+    width: 100%;
+    outline: none;
+}
+
+.container_filter_section{
+
+}
+
+.container_select{
+    position: absolute;
+    top: 90px;
+    right: 0px;
+    background-color: rgba(238, 234, 234, 1);
+    border-radius: 8px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.28);
+    width: 354px;
+    padding: 10px 20px 25px;
+}
+
+.filter_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.filter_header_div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.form_filter{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.form_filter label{
+    font-weight: 300;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form_filter button{
+    background-color: var(--primary-color);
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.28);
+}
