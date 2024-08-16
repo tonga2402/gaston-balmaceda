@@ -398,10 +398,6 @@ body{
     outline: none;
 }
 
-.container_filter_section{
-
-}
-
 .container_select{
     position: absolute;
     top: 90px;
@@ -460,4 +456,43 @@ body{
     border-radius: 5px;
     box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.28);
     color: black;
+}
+
+.div_card_options{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.card_options_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.container_enter_amount{
+    background-color: var(--header-color);
+    border-radius: 8px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.48);
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_enter_amount h2 {
+    color: var(--primary-color);
+}
+
+.container_enter_amount input {
+    padding: 10px 15px;
+    border-radius: 8px;
+    width: 300px;
+    margin-bottom: 30px;
+}
+
+.enter_amount_link{
+   text-align: end;
+   margin-bottom: 20px;
 }

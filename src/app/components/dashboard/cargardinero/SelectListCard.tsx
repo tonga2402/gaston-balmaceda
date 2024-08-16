@@ -1,21 +1,21 @@
 import Link from "next/link";
 import React from "react";
-import { IoArrowForwardOutline, IoPersonCircleOutline } from "react-icons/io5";
+import SelectCardOptions from "./SelectCardOptions";
 
 const SelectListCard = () => {
   return (
     <section>
       <div className="container_alias">
-        <h3 style={{color:'var(--primary-color)'}}>Seleccionar tarjeta</h3>
-        <div className="container_newcard">
+        <h3 style={{ color: "var(--primary-color)" }}>Seleccionar tarjeta</h3>
+        <SelectCardOptions />
+        <div className="container_newcard" style={{ marginTop: "20px" }}>
           <div className="div_newcard">
             <div className="add_newcard">+</div>
-            <h3 style={{color:'var(--primary-color)'}}>Nueva tarjeta</h3>
+            <Link style={{textDecoration:'none'}} href={"/dashboard/tarjetas/nuevatarjeta"}>
+              <h3 style={{ color: "var(--primary-color)" }}>Nueva tarjeta</h3>
+            </Link>
           </div>
-          <Link
-            href={"tarjetas/nuevatarjeta"}
-            className="select_card_button"
-          >
+          <Link href={"/dashboard/cargardinero/ingresarmonto"} className="select_card_button">
             Continuar
           </Link>
         </div>
