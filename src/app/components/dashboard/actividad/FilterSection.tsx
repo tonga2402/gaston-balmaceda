@@ -22,33 +22,33 @@ const FilterSection = () => {
               <IoChevronDown />
             </div>
             <div>
-              <button>Borrar filtros</button>
+              <button style={{backgroundColor:'transparent'}}>Borrar filtros</button>
             </div>
           </div>
           <form action="" className="form_filter">
-            <label>
+            <label htmlFor="1">
               Hoy
-              <input type="radio" id="1"/>
-            </label>
-            <label>
+              <input type="radio" id="1" name="filter"/>
+            </label >
+            <label htmlFor="2">
               Ayer
-              <input type="radio" id="2"/>
+              <input type="radio" id="2" name="filter"/>
             </label>
-            <label>
+            <label htmlFor="3">
               Ultima semana
-              <input type="radio" id="3"/>
+              <input type="radio" id="3" name="filter"/>
             </label>
-            <label>
+            <label htmlFor="4">
               Ultimos 15 dias
-              <input type="radio" id="4"/>
+              <input type="radio" id="4" name="filter"/>
             </label>
-            <label>
+            <label htmlFor="5">
               Ultimo mes
-              <input type="radio" id="5" />
+              <input type="radio" id="5" name="filter" />
             </label>
-            <label>
+            <label htmlFor="6">
               Ultimo ano
-              <input type="radio" id="6"/>
+              <input type="radio" id="6"name="filter" />
             </label>
             <button>Aplicar</button>
           </form>

@@ -1,13 +1,9 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import Logo from '@/app/UI-KIT/LogoLandingPage.png'
-import LoggedIn from '../auth/LoggedIn';
-
+import Link from "next/link";
+import Image from "next/image";
+import Logo from "@/app/UI-KIT/LogoLandingPage.png";
+import LoggedIn from "../auth/LoggedIn";
 
 const HeaderLanding = () => {
-
-
-
   return (
     <div className="header_container">
       <div>
@@ -20,6 +16,6 @@ const HeaderLanding = () => {
       </div>
     </div>
   );
-}
+};
 
 export default HeaderLanding;
