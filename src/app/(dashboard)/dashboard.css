@@ -496,3 +496,71 @@ body{
    text-align: end;
    margin-bottom: 20px;
 }
+
+.container_register_amount{
+    background-color: var(--header-color);
+    border-radius: 8px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.48);
+    padding: 40px 40px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.container_register_amount h4 , h5 {
+    font-weight: 400;
+}
+.container_register_amount h3 , h5{
+    margin-top: 0px;
+}
+
+.register_amount_link{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.link_icon_amount{
+    font-size: 28px;
+    color: var(--primary-color);
+}
+
+.container_register_amount_ok {
+    background-color: var(--header-color);
+    border-radius: 8px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.48);
+    padding: 10px 40px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.container_register_amount_ok h3 {
+    color: var(--primary-color);
+}
+
+
+
+.div_amount_ok{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.48);
+}
+.div_new_amount{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.add_amount_icon{
+    font-size: 25px;
+    color: black;
+    border: solid 2px black;
+    padding: 10px 10px 5px 10px;
+    border-radius: 50%;
+}
