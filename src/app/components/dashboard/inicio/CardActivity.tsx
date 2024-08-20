@@ -18,6 +18,7 @@ type CardActivityProps = {
   destination: string;
   amount: number;
   dated: string;
+  type: string
 };
 
 export default async function CardActivity({
@@ -25,6 +26,7 @@ export default async function CardActivity({
   destination,
   amount,
   dated,
+  type
 }: CardActivityProps) {
   return (
     <div key={id}>
@@ -32,7 +34,7 @@ export default async function CardActivity({
       <div className="card_activity">
         <div className="card_container">
           <div className="circle_activity"></div>
-          <h5>Trasferiste a {destination}</h5>
+          <h5>{type} a {destination}</h5>
         </div>
         <div className="div_price">
           <h5>-$ {amount}</h5>

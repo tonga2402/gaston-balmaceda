@@ -511,7 +511,7 @@ body{
     font-weight: 400;
 }
 .container_register_amount h3 , h5{
-    margin-top: 0px;
+
 }
 
 .register_amount_link{
@@ -563,4 +563,33 @@ body{
     border: solid 2px black;
     padding: 10px 10px 5px 10px;
     border-radius: 50%;
+}
+
+.container_button_amount_ok{
+    display: flex;
+    justify-content: end;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.amount_button{
+    text-decoration: none;
+    background-color: var(--input-grey);
+    display: flex;
+    align-items: center;
+    color: black;
+    padding: 10px 70px;
+    border-radius: 5px;
+    box-shadow: 4px 2px 8px -5px rgba(0,0,0,0.28);
+}
+.amount_button_pdf{
+    text-decoration: none;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 4px 2px 8px -5px rgba(0,0,0,0.28);
+    font-size: 16px;
 }

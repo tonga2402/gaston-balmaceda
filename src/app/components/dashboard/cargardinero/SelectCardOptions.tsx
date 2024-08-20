@@ -28,7 +28,6 @@ export default async function SelectCardOptions() {
     <section>
       <div className="container_activity">
         <h5 style={{ color: "black" }}>Tus tarjetas</h5>
-        {/* <Card token={token ? token : ""} accountId={data.id} /> */}
         <CardOptions token={token ? token : ''} accountId={data.id}  />
       </div>
     </section>

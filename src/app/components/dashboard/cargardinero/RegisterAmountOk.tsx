@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { IoCheckmarkSharp } from "react-icons/io5";
 
@@ -23,6 +24,14 @@ const RegisterAmountOk = () => {
           <h4>Brubank</h4>
           <h5>CVU 00000000000212121221233312</h5>
         </div>
+      </div>
+      <div className="container_button_amount_ok">
+        <Link href={"/dashboard/inicio"} className="amount_button">
+          Ir al inicio
+        </Link>
+        <button className="amount_button_pdf">
+          Descargar comprobante
+        </button>
       </div>
     </>
   );

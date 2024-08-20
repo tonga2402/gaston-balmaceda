@@ -34,7 +34,7 @@ export default async function Activity({
     }
   );
   const data: ActivityType[] = await res.json();
-
+console.log(data)
   if (!data.length) {
     return (
       <>
@@ -49,6 +49,7 @@ export default async function Activity({
         destination={value.destination}
         amount={value.amount}
         dated={value.dated}
+        type={value.type}
       />
     </>
   ));
