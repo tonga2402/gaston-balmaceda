@@ -45,6 +45,7 @@ console.log(data)
   return data.map((value) => (
     <>
       <CardActivity
+        accountId={accountId}
         id={value.id}
         destination={value.destination}
         amount={value.amount}

@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { IoArrowForwardOutline } from "react-icons/io5";
 import { cookies } from "next/headers";
 import Activity from "../inicio/Activity";
 
