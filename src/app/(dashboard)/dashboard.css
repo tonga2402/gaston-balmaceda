@@ -593,3 +593,56 @@ body{
     box-shadow: 4px 2px 8px -5px rgba(0,0,0,0.28);
     font-size: 16px;
 }
+
+.container_background{
+    background-color: var(--header-color);
+    box-shadow: 4px 4px 12px -5px rgba(0,0,0,0.48);
+    padding: 10px 40px;
+    border-radius: 8px;
+}
+
+.container_background h4{
+    color: white;
+}
+.container_background h3{
+    color: var(--primary-color);
+}
+.container_background hr{
+    border: 1px solid white;
+}
+
+.div_new_activity{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.div_new_activity h5{
+    color: white;
+}
+.add_activity_icon{
+    font-size: 20px;
+    color: var(--primary-color);
+    border: solid 2px var(--primary-color);
+    border-radius: 50%;
+    height: 30px;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    padding: 0px 3px;
+}
+
+.activity_title{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-color);
+}
+
+.activity_description h4{
+    margin-bottom: 0px;
+}
+.activity_description h3{
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
