@@ -646,3 +646,10 @@ body{
     margin-top: 0px;
     margin-bottom: 30px;
 }
+
+.container_enter_amount p {
+    font-size: 12px;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
