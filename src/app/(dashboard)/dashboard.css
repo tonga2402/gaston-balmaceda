@@ -653,3 +653,25 @@ body{
     margin-top: 0;
     margin-bottom: 25px;
 }
+
+.container_pai_service{
+    background-color: var(--header-color);
+    border-radius: 8px;
+    box-shadow: 4px 3px 12px -5px rgba(0,0,0,0.48);
+    padding: 20px 40px;
+}
+
+.container_pai_service hr{
+    border: 1px solid var(--grey-button) ;
+}
+.div_pai_service{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.div_pai_service h3{
+    color: white
+}
+.div_pai_service h2{
+    color: var(--primary-color)
+}
