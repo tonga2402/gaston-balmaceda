@@ -1,16 +1,13 @@
-import React from 'react'
-import { useFormContext } from 'react-hook-form';
+import { InputTextProps } from "@/app/types/auth.types";
+import React from "react";
+import { useFormContext } from "react-hook-form";
 
-
-type InputTextProps = {
-    type: 'text' | 'password' | 'number' | 'email';
-    placeholder?: string;
-    fieldName: string
-}
 const InputText = ({ type, placeholder, fieldName }: InputTextProps) => {
-  const {register}= useFormContext()
+  const { register } = useFormContext();
 
-  return <input type={type} placeholder={placeholder}  {...register(fieldName)}/>;
+  return (
+    <input type={type} placeholder={placeholder} {...register(fieldName)} />
+  );
 };
 
-export default InputText
+export default InputText;

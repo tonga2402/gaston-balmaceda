@@ -1,17 +1,12 @@
+import { CardServiceData } from "@/app/types/dashboard.types";
 import Link from "next/link";
-import React from "react";
 
-type ServiceTYpe = {
-  id: number;
-  name: "string";
-  date: "string";
-};
 export default async function ServiceSection() {
-  const res = await fetch(`https://digitalmoney.digitalhouse.com/service`, {
+  const res = await fetch(`${process.env.API_URL}/service`, {
     method: "GET",
   });
 
-  const data: ServiceTYpe[] = await res.json();
+  const data: CardServiceData[] = await res.json();
   console.log(data);
   return (
     <section>
@@ -22,11 +17,14 @@ export default async function ServiceSection() {
           <div key={data1.id}>
             <div className="card_activity">
               <div className="card_container">
-                <h5 style={{margin:'4px'}}>{data1.name} </h5>
+                <h5 style={{ margin: "4px" }}>{data1.name} </h5>
               </div>
               <div className="div_price">
-                <Link href={`/dashboard/pagarservicios/${data1.id}`} style={{textDecoration:'none', color:'black'}}>
-                <h5 style={{fontWeight:'500'}} >Seleccionar</h5>
+                <Link
+                  href={`/dashboard/pagarservicios/${data1.id}`}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <h5 style={{ fontWeight: "500" }}>Seleccionar</h5>
                 </Link>
               </div>
             </div>

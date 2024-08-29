@@ -1,30 +1,9 @@
-import Link from "next/link";
-import React from "react";
+import { ActivityType, CardTypeProps } from "@/app/types/dashboard.types";
 import CardActivity from "./CardActivity";
-import { IoArrowForwardOutline } from "react-icons/io5";
 
-type ActivityType = {
-  account_id: number;
-  amount: number;
-  dated: string;
-  description: string;
-  destination: string;
-  id: number;
-  origin: string;
-  type: string;
-};
-
-type CardActivityProps = {
-  token: string;
-  accountId: number;
-};
-
-export default async function Activity({
-  token,
-  accountId,
-}: CardActivityProps) {
+export default async function Activity({ token, accountId }: CardTypeProps) {
   const res = await fetch(
-    `https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/activity`,
+    `${process.env.API_URL}/api/accounts/${accountId}/activity`,
     {
       method: "GET",
       headers: {
@@ -34,7 +13,7 @@ export default async function Activity({
     }
   );
   const data: ActivityType[] = await res.json();
-console.log(data)
+  console.log(data);
   if (!data.length) {
     return (
       <>

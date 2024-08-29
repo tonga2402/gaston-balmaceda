@@ -1,14 +1,13 @@
-import ListCards from '@/app/components/dashboard/tarjetas/ListCards'
-import NewCard from '@/app/components/dashboard/tarjetas/NewCard'
-import React from 'react'
+import ListCards from "@/app/components/dashboard/tarjetas/ListCards";
+import NewCard from "@/app/components/dashboard/tarjetas/NewCard";
 
 const page = () => {
   return (
-    <div className='container_initialPage'>
+    <div className="container_initialPage">
       <NewCard />
       <ListCards />
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-export default page
+export default page;

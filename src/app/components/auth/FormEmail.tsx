@@ -1,16 +1,12 @@
-'use client'
+"use client";
 
-import { useRouter } from "next/navigation"
-import InputText from "./InputText"
-import { FormProvider, useForm } from "react-hook-form"
+import { useRouter } from "next/navigation";
+import InputText from "./InputText";
+import { FormProvider, useForm } from "react-hook-form";
 import inputEmailSchema from "@/app/schemes/inputEmail.scheme";
-import { BeatLoader } from "react-spinners"
-import { yupResolver } from "@hookform/resolvers/yup"
-
-
-type InputEmailProps = {
-  email: string
-}
+import { BeatLoader } from "react-spinners";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { InputEmailProps } from "@/app/types/auth.types";
 
 const FormEmail = () => {
   const router = useRouter();
@@ -18,11 +14,13 @@ const FormEmail = () => {
     router.push(href);
   };
 
-
   const methods = useForm<InputEmailProps>({
     resolver: yupResolver(inputEmailSchema),
-  })
-  const { handleSubmit ,formState: {errors , isSubmitting} } = methods;
+  });
+  const {
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = methods;
 
   const onSubmit = (data: InputEmailProps) => {
     const inputEmail = data.email;
@@ -69,6 +67,6 @@ const FormEmail = () => {
       </div>
     </FormProvider>
   );
-}
+};
 
 export default FormEmail;

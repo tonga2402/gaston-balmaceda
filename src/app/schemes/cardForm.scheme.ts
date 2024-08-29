@@ -1,5 +1,4 @@
-import * as yup from "yup"
-
+import * as yup from "yup";
 
 const cardForm = yup
   .object({
@@ -10,4 +9,4 @@ const cardForm = yup
   })
   .required();
 
-  export default cardForm;
+export default cardForm;

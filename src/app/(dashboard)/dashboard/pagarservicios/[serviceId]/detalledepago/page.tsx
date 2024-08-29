@@ -1,22 +1,14 @@
 import SelectCardOptions from "@/app/components/dashboard/cargardinero/SelectCardOptions";
+import { CardServiceData } from "@/app/types/dashboard.types";
 import Link from "next/link";
-import React from "react";
-
-type CardServiceData = {
-  id: number;
-  name: "string";
-  date: "string";
-  invoice_value: number;
-};
 
 export default async function PaiService({
   params,
 }: {
   params: { serviceId: number };
 }) {
-
   const res = await fetch(
-    `https://digitalmoney.digitalhouse.com/service/${params.serviceId}`,
+    `${process.env.API_URL}/service/${params.serviceId}`,
     {
       method: "GET",
     }

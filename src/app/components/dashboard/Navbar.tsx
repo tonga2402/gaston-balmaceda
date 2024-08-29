@@ -1,9 +1,7 @@
-import Link from 'next/link'
-import React from 'react'
-import LogoutButton from './LogoutButton';
+import Link from "next/link";
+import LogoutButton from "./LogoutButton";
 
 const Navbar = () => {
-
   return (
     <div className="navbar_container">
       <div className="links_container">
@@ -25,10 +23,10 @@ const Navbar = () => {
         <Link className="link" href={"/dashboard/tarjetas"}>
           <span>Tarjetas</span>
         </Link>
-        <LogoutButton/>
+        <LogoutButton />
       </div>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

@@ -6,11 +6,7 @@ import inputPasswordSchema from "@/app/schemes/inputPassword.scheme";
 import { useRouter } from "next/navigation";
 import { BeatLoader } from "react-spinners";
 import InputPassword from "./InputPassword";
-
-type InputPasswordProps = {
-  email?: string;
-  password: string;
-};
+import { InputPasswordProps } from "@/app/types/auth.types";
 
 const FormPassword = () => {
   const router = useRouter();

@@ -14,7 +14,7 @@ export default async function AliasSection() {
   const tokenValue = cookie.get("Auth")?.value;
   const token = tokenValue?.replace(/['"]+/g, "");
 
-  const res = await fetch(`https://digitalmoney.digitalhouse.com/api/account`, {
+  const res = await fetch(`${process.env.API_URL}/api/account`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

@@ -8,16 +8,7 @@ import { useRouter } from "next/navigation";
 import { BeatLoader } from "react-spinners";
 import InputPassword from "./InputPassword";
 import RegisterOk from "../landingPage/RegisterOk";
-
-type FormData = {
-  firstname: string;
-  lastname: string;
-  dni: number;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  phone: string;
-};
+import { FormData } from "@/app/types/auth.types";
 
 const FormRegister = () => {
   const [serverError, setServerError] = useState<string | null>(null);
@@ -34,7 +25,7 @@ const FormRegister = () => {
   } = methods;
 
   const onSubmit = async (data: FormData) => {
-    delete (data as {confirmPassword?: string}).confirmPassword
+    delete (data as { confirmPassword?: string }).confirmPassword;
     const res = await fetch(`/api/register`, {
       method: "POST",
       headers: {
@@ -49,7 +40,7 @@ const FormRegister = () => {
       setServerError("Verificar datos ingresados");
     }
     setServerError(null);
-    setRegisterOk(true)
+    setRegisterOk(true);
     router.push("/login");
     router.refresh();
     return user;

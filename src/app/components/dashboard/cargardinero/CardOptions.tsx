@@ -1,21 +1,8 @@
-import React from "react";
-
-type CardTypeProps = {
-  token: string;
-  accountId: number;
-};
-type CardType = {
-  account_id: number;
-  cod: number;
-  expiration_date: "string";
-  first_last_name: "string";
-  id: number;
-  number_id: number;
-};
+import { CardType, CardTypeProps } from "@/app/types/dashboard.types";
 
 export default async function CardOptions(cardData: CardTypeProps) {
   const res = await fetch(
-    `https://digitalmoney.digitalhouse.com/api/accounts/${cardData.accountId}/cards`,
+    `${process.env.API_URL}/api/accounts/${cardData.accountId}/cards`,
     {
       method: "GET",
       headers: {
@@ -38,7 +25,7 @@ export default async function CardOptions(cardData: CardTypeProps) {
             <div className="div_card_options">
               <div className="circle_activity"></div>
               <label style={{ color: "black" }}>
-                Terminada en {(data1.number_id).toString().slice(12)}
+                Terminada en {data1.number_id.toString().slice(12)}
               </label>
             </div>
             <input type="radio" id="3" name="filter" />

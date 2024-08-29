@@ -4,7 +4,7 @@ export async function POST(request: Request) {
   const { data } = await request.json();
 
   try {
-    const res = await fetch("https://digitalmoney.digitalhouse.com/api/users", {
+    const res = await fetch(`${process.env.API_URL}/api/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

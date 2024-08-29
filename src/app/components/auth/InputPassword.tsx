@@ -1,18 +1,13 @@
-import React, { useState } from 'react'
-import InputText from './InputText'
-import { IoEyeOutline,IoEyeOffOutline } from "react-icons/io5";
+import React, { useState } from "react";
+import InputText from "./InputText";
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
+import { InputPasswordPropsType } from "@/app/types/auth.types";
 
-
-type InputPasswordProps = {
-    fieldName : string
-}
-
-const InputPassword = ( fieldName : InputPasswordProps) => {
+const InputPassword = (fieldName: InputPasswordPropsType) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
-
   };
   return (
     <div className="password_container">
@@ -26,7 +21,6 @@ const InputPassword = ( fieldName : InputPasswordProps) => {
       </div>
     </div>
   );
-}
+};
 
 export default InputPassword;
-

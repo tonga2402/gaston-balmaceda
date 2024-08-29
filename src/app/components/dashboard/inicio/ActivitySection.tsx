@@ -1,23 +1,15 @@
 import Link from "next/link";
 import { IoArrowForwardOutline } from "react-icons/io5";
-import CardActivity from "./CardActivity";
 import { cookies } from "next/headers";
 import Activity from "./Activity";
-
-type AccountType = {
-  alias: "string";
-  available_amount: number;
-  cvu: "string";
-  id: number;
-  user_id: number;
-};
+import { AccountType } from "@/app/types/dashboard.types";
 
 export default async function ActivitySection() {
   const cookie = cookies();
   const authToken = cookie.get("Auth")?.value;
   const token = authToken?.replace(/['"]+/g, "");
 
-  const res = await fetch(`https://digitalmoney.digitalhouse.com/api/account`, {
+  const res = await fetch(`${process.env.API_URL}/api/account`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

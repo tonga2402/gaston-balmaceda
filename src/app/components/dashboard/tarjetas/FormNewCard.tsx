@@ -5,29 +5,9 @@ import "react-credit-cards-2/dist/es/styles-compiled.css";
 import Cards from "react-credit-cards-2";
 import { useRouter } from "next/navigation";
 import { BeatLoader } from "react-spinners";
+import { CardType, CardTypeProps } from "@/app/types/dashboard.types";
 
-type FormNewCardProps = {
-  token: string;
-  accountId: number;
-};
-
-type CardDataResponse = {
-  account_id: number;
-  cod: number;
-  expiration_date: "string";
-  first_last_name: "string";
-  id: number;
-  number_id: number;
-};
-
-type NewCardTYpe = {
-  cod: number;
-  expiration_date: "string";
-  first_last_name: "string";
-  number_id: number;
-};
-
-const FormNewCard = ({ token, accountId }: FormNewCardProps) => {
+const FormNewCard = ({ token, accountId }: CardTypeProps) => {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
   const [dataOk, setDataOk] = useState<boolean>(false);
@@ -68,7 +48,7 @@ const FormNewCard = ({ token, accountId }: FormNewCardProps) => {
     };
     try {
       const res = await fetch(
-        `https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/cards`,
+        `${process.env.API_URL}/api/accounts/${accountId}/cards`,
         {
           method: "POST",
           headers: {
@@ -78,9 +58,9 @@ const FormNewCard = ({ token, accountId }: FormNewCardProps) => {
           body: JSON.stringify(newCard),
         }
       );
-      const data: CardDataResponse = await res.json();
+      const data: CardType = await res.json();
       setLoading(false);
-      setDataOk(true)
+      setDataOk(true);
     } catch (error) {}
   };
   return (
@@ -142,9 +122,15 @@ const FormNewCard = ({ token, accountId }: FormNewCardProps) => {
               minLength={3}
               maxLength={3}
             />
-            <button style={{backgroundColor:`${dataOk && 'var(--primary-color)'}`}} >
+            <button
+              style={{ backgroundColor: `${dataOk && "var(--primary-color)"}` }}
+            >
               {" "}
-              {loading ? <BeatLoader color="black" size={10} /> : `${ dataOk ? 'OK':'Continuar'}`}
+              {loading ? (
+                <BeatLoader color="black" size={10} />
+              ) : (
+                `${dataOk ? "OK" : "Continuar"}`
+              )}
             </button>
           </div>
         </div>

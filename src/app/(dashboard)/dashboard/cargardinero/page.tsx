@@ -1,14 +1,13 @@
-import BankTransfer from '@/app/components/dashboard/cargardinero/BankTransfer'
-import SelectCard from '@/app/components/dashboard/cargardinero/SelectCard'
-import React from 'react'
+import BankTransfer from "@/app/components/dashboard/cargardinero/BankTransfer";
+import SelectCard from "@/app/components/dashboard/cargardinero/SelectCard";
 
 const page = () => {
   return (
-    <div className='container_initialPage'>
+    <div className="container_initialPage">
       <BankTransfer />
       <SelectCard />
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-export default page
+export default page;

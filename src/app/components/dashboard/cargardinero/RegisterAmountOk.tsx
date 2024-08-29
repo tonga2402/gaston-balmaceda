@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import { IoCheckmarkSharp } from "react-icons/io5";
 
 const RegisterAmountOk = () => {
@@ -29,9 +28,7 @@ const RegisterAmountOk = () => {
         <Link href={"/dashboard/inicio"} className="amount_button">
           Ir al inicio
         </Link>
-        <button className="amount_button_pdf">
-          Descargar comprobante
-        </button>
+        <button className="amount_button_pdf">Descargar comprobante</button>
       </div>
     </>
   );

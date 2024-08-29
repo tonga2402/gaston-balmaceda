@@ -1,22 +1,9 @@
-import React from "react";
 import DeleteCardButton from "./DeleteCardButton";
-
-type CardTypeProps = {
-  token: string;
-  accountId: number;
-};
-type CardType = {
-  account_id: number;
-  cod: number;
-  expiration_date: "string";
-  first_last_name: "string";
-  id: number;
-  number_id: number;
-};
+import { CardType, CardTypeProps } from "@/app/types/dashboard.types";
 
 export default async function Card(cardData: CardTypeProps) {
   const res = await fetch(
-    `https://digitalmoney.digitalhouse.com/api/accounts/${cardData.accountId}/cards`,
+    `${process.env.API_URL}/api/accounts/${cardData.accountId}/cards`,
     {
       method: "GET",
       headers: {
@@ -37,10 +24,14 @@ export default async function Card(cardData: CardTypeProps) {
           <div className="card_activity">
             <div className="card_container">
               <div className="circle_activity"></div>
-              <h5>Terminada en {(data1.number_id).toString().slice(12)} </h5>
+              <h5>Terminada en {data1.number_id.toString().slice(12)} </h5>
             </div>
             <div className="div_price">
-              <DeleteCardButton token={cardData.token} accountId={data1.account_id} cardId={data1.id} />
+              <DeleteCardButton
+                token={cardData.token}
+                accountId={data1.account_id}
+                cardId={data1.id}
+              />
             </div>
           </div>
           <hr />

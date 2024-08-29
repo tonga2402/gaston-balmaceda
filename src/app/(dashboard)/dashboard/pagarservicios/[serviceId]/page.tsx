@@ -1,20 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import Error from "@/app/UI-KIT/error.png";
+import { CardServiceData } from "@/app/types/dashboard.types";
 
-type CardServiceData = {
-  id: number;
-  name: "string";
-  date: "string";
-  invoice_value: number;
-};
 export default async function CardService({
   params,
 }: {
   params: { serviceId: number };
 }) {
   const res = await fetch(
-    `https://digitalmoney.digitalhouse.com/service/${params.serviceId}`,
+    `${process.env.API_URL}/service/${params.serviceId}`,
     {
       method: "GET",
     }
@@ -36,7 +31,10 @@ export default async function CardService({
               adelante si tenés menos.{" "}
             </p>
             <div className="enter_amount_link">
-              <Link href={`/dashboard/pagarservicios/${params.serviceId}/detalledepago`} className="select_card_button">
+              <Link
+                href={`/dashboard/pagarservicios/${params.serviceId}/detalledepago`}
+                className="select_card_button"
+              >
                 Continuar
               </Link>
             </div>

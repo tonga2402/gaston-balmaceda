@@ -1,11 +1,8 @@
-import Image from 'next/image';
-import React from 'react'
-import Check from '@/app/UI-KIT/Check.png'
-import { useRouter } from 'next/navigation';
-
+import Image from "next/image";
+import Check from "@/app/UI-KIT/Check.png";
+import { useRouter } from "next/navigation";
 
 const RegisterOk = () => {
-
   const router = useRouter();
 
   const goToLink = (href: string) => {
@@ -24,6 +21,6 @@ const RegisterOk = () => {
       </button>
     </div>
   );
-}
+};
 
-export default RegisterOk
+export default RegisterOk;

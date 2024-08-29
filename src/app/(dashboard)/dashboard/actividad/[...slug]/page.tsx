@@ -1,18 +1,7 @@
+import { ActivityType } from "@/app/types/dashboard.types";
 import { cookies } from "next/headers";
 import Link from "next/link";
-import React from "react";
 import { IoCheckmarkSharp } from "react-icons/io5";
-
-type ActivityType = {
-  account_id: number;
-  amount: number;
-  dated: string;
-  description: string;
-  destination: string;
-  id: number;
-  origin: string;
-  type: string;
-};
 
 export default async function ActivityDetail({
   params,
@@ -26,7 +15,7 @@ export default async function ActivityDetail({
   const id = params.slug[1];
 
   const res = await fetch(
-    `https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/transactions/${id}`,
+    `${process.env.API_URL}/api/accounts/${accountId}/transactions/${id}`,
     {
       method: "GET",
       headers: {
@@ -36,7 +25,7 @@ export default async function ActivityDetail({
     }
   );
   const data: ActivityType = await res.json();
-  console.log(data)
+  console.log(data);
   return (
     <div className="container_initialPage">
       <div className="container_background">
@@ -49,7 +38,7 @@ export default async function ActivityDetail({
           </div>
           <h5>Creada el {data.dated}.</h5>
         </div>
-        <hr/>
+        <hr />
         <div className="activity_description">
           <h4>{data.description}</h4>
           <h3>${data.amount}</h3>

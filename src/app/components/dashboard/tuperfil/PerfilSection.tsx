@@ -21,7 +21,7 @@ export default async function PerfilSection  ()  {
   const userId = user.username as number;
 
   const res = await fetch(
-    `https://digitalmoney.digitalhouse.com/api/users/${userId}`,
+    `${process.env.API_URL}/api/users/${userId}`,
     {
       method: "GET",
       headers: {

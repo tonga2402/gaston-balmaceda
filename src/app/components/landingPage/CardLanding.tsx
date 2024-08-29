@@ -1,10 +1,4 @@
-import React from 'react'
-
-
-type CardLandingProps = {
-  title : string;
-  body: string
-}
+import { CardLandingProps } from "@/app/types/landingPage.types";
 
 const CardLanding = ({ title, body }: CardLandingProps) => {
   return (

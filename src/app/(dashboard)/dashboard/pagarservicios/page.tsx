@@ -1,15 +1,13 @@
-import SearchSection from '@/app/components/dashboard/inicio/SearchSection'
-import SearchService from '@/app/components/dashboard/pagarservicios/SearchService'
-import ServiceSection from '@/app/components/dashboard/pagarservicios/ServiceSection'
-import React from 'react'
+import SearchService from "@/app/components/dashboard/pagarservicios/SearchService";
+import ServiceSection from "@/app/components/dashboard/pagarservicios/ServiceSection";
 
 const page = () => {
   return (
-    <div className='container_initialPage'>
+    <div className="container_initialPage">
       <SearchService />
       <ServiceSection />
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-export default page
+export default page;

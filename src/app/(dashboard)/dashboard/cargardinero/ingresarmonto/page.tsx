@@ -1,5 +1,4 @@
 import EnterAmount from '@/app/components/dashboard/cargardinero/EnterAmount'
-import React from 'react'
 
 const page = () => {
   return (

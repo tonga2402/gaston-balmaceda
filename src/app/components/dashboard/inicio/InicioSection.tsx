@@ -1,32 +1,20 @@
+import { AccountType } from "@/app/types/dashboard.types";
 import { cookies } from "next/headers";
 import Link from "next/link";
 
-type accountType = {
-  alias: "string";
-  available_amount: number;
-  cvu: "string";
-  id: number;
-  user_id: number;
-};
-
-
-export default async function InicioSection () {
-
+export default async function InicioSection() {
   const cookie = cookies();
   const authToken = cookie.get("Auth")?.value;
-  const token = authToken?.replace(/['"]+/g, "")
+  const token = authToken?.replace(/['"]+/g, "");
 
-  const res = await fetch(
-    `https://digitalmoney.digitalhouse.com/api/account`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `${token}`,
-      },
-    }
-  );
-  const data: accountType = await res.json();
+  const res = await fetch(`${process.env.API_URL}/api/account`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `${token}`,
+    },
+  });
+  const data: AccountType = await res.json();
 
   if (!data) {
     return <></>;
@@ -46,5 +34,4 @@ export default async function InicioSection () {
       <h2>$ {data.available_amount}</h2>
     </section>
   );
-};
-
+}

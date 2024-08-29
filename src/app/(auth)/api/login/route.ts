@@ -6,7 +6,7 @@ export async function POST(request: Request) {
 
   try {  
 
-    const res = await fetch("https://digitalmoney.digitalhouse.com/api/login", {
+    const res = await fetch(`${process.env.API_URL}/api/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
