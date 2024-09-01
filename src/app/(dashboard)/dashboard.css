@@ -70,6 +70,7 @@ body {
 
 .link {
   text-decoration: none;
+  color: black;
 }
 
 .link_dashboard {
@@ -678,6 +679,13 @@ h5 {
 .div_pai_service h2 {
   color: var(--primary-color);
 }
+.show_menu{
+  display: none;
+}
+
+.container_menu_mobile{
+  display: none;
+}
 
 @media screen and (max-width: 834px) {
   .navbar_container {
@@ -714,5 +722,32 @@ h5 {
   .button_service{
     height: 60px;
     margin-bottom: 20px;
+  }
+  .show_menu{
+    display: flex;
+    color: var(--primary-color);
+    font-size: 25px;
+  }
+
+  .container_menu_mobile{
+    position: absolute;
+    display:inline;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    
+  }
+  .div_menu_mobile{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    padding: 30px 50px;
+    gap: 15px;
+  }
+  .link_mobile{
+    color: black;
+    text-decoration: none;
+    font-size: 22px;
   }
 }

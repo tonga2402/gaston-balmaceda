@@ -1,7 +1,7 @@
 import { UserType } from "@/app/types/dashboard.types";
 import { jwtDecode, JwtPayload } from "jwt-decode";
 import { cookies } from "next/headers";
-import Link from "next/link";
+import HeadersContain from "./HeadersContain";
 
 export default async function UserHeader() {
   const cookie = cookies();
@@ -19,6 +19,9 @@ export default async function UserHeader() {
   });
   const data: UserType = await res.json();
 
+  const dataFirstName = data.firstname.toUpperCase();
+  const dataLastName = data.lastname.toUpperCase();
+
   if (!data.firstname) {
     return <></>;
   }
@@ -29,10 +32,11 @@ export default async function UserHeader() {
         {data?.firstname.substring(0, 1)?.toUpperCase()}
         {data?.lastname.substring(0, 1)?.toUpperCase()}
       </div>
-      <p>Hola,</p>
-      <Link className="link_dashboard" href={"/dashboard"}>
-        {(data?.firstname).toUpperCase()} {(data?.lastname).toUpperCase()}
-      </Link>
+      
+      <HeadersContain
+        dataFirstName={dataFirstName}
+        dataLastName={dataLastName}
+      />
     </>
   );
 }
