@@ -15,6 +15,8 @@ export default async function InicioSection() {
     },
   });
   const data: AccountType = await res.json();
+  const amount = data.available_amount
+  const newAmount = new Intl.NumberFormat('es-AR').format(amount)
 
   if (!data) {
     return <></>;
@@ -31,7 +33,7 @@ export default async function InicioSection() {
         </Link>
       </div>
       <h4>Dinero disponible</h4>
-      <h2>$ {data.available_amount}</h2>
+      <h2>$ {newAmount}</h2>
     </section>
   );
 }

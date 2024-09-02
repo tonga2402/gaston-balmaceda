@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { IoCreateOutline } from "react-icons/io5";
 
-const RegisterAmount = () => {
+const page = ({ params }: { params: { amount: string } }) => {
   return (
-    <div className="container_register_amount">
+    <div className="container_initialPage">
+       <div className="container_register_amount">
       <h3 style={{ color: "var(--primary-color)" }}>
         Revisá que está todo bien
       </h3>
@@ -13,7 +14,7 @@ const RegisterAmount = () => {
           <IoCreateOutline className="link_icon_amount" />
         </Link>
       </div>
-      <h3>$300</h3>
+      <h3>$ {params.amount}</h3>
       <div>
         <h5>Para</h5>
         <h3>Cuenta propia</h3>
@@ -26,7 +27,8 @@ const RegisterAmount = () => {
         </Link>
       </div>
     </div>
+    </div>
   );
 };
 
-export default RegisterAmount;
+export default page;

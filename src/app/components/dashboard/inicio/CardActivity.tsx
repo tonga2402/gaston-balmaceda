@@ -9,8 +9,9 @@ export default async function CardActivity({
   dated,
   type,
 }: CardActivityProps) {
-  // const newDay = new Date(dated)
-  // const day = newDay.getDay()
+  const newAmount = new Intl.NumberFormat('es-AR').format(amount)
+  const newDay = new Date(dated)
+  const day = newDay.toLocaleDateString('es-AR')
 
   return (
     <div key={id}>
@@ -27,8 +28,8 @@ export default async function CardActivity({
             </h5>
           </div>
           <div className="div_price">
-            <h5>-$ {amount}</h5>
-            <h6>{dated}</h6>
+            <h5>-$ {newAmount}</h5>
+            <h6>{day}</h6>
           </div>
         </div>
       </Link>

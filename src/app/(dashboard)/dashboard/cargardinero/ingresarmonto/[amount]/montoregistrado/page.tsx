@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { IoCheckmarkSharp } from "react-icons/io5";
 
-const RegisterAmountOk = () => {
-  return (
+const page = () => {
+
+
+  return <div className="container_initialPage">
     <>
       <div className="div_amount_ok">
         <div className="div_new_amount">
@@ -16,7 +18,7 @@ const RegisterAmountOk = () => {
         <h4 style={{ marginBottom: "0px", fontWeight: "400" }}>
           17 de agosto 2022 a 16:34 hs.
         </h4>
-        <h3>$300</h3>
+        <h3>$ 100</h3>
         <div>
           <h5>Para</h5>
           <h3>Cuenta propia</h3>
@@ -31,7 +33,7 @@ const RegisterAmountOk = () => {
         <button className="amount_button_pdf">Descargar comprobante</button>
       </div>
     </>
-  );
+  </div>;
 };
 
-export default RegisterAmountOk;
+export default page;

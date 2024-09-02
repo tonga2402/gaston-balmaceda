@@ -80,7 +80,10 @@ const HeadersContain = ({
       )}
       <p>Hola,</p>
       <Link className="link_dashboard" href={"/dashboard"}>
-        {firstName} {lastName}
+        {firstName[0].toLocaleUpperCase() +
+          firstName.substring(1).toLocaleLowerCase()}{" "}
+        {lastName[0].toLocaleUpperCase() +
+          lastName.substring(1).toLocaleLowerCase()}
       </Link>
     </>
   );
