@@ -4,10 +4,9 @@ import Link from "next/link";
 export default async function CardActivity({
   id,
   accountId,
-  destination,
+  description,
   amount,
   dated,
-  type,
 }: CardActivityProps) {
   const newAmount = new Intl.NumberFormat('es-AR').format(amount)
   const newDay = new Date(dated)
@@ -15,7 +14,6 @@ export default async function CardActivity({
 
   return (
     <div key={id}>
-      <hr />
       <Link
         href={`/dashboard/actividad/${accountId}/${id}`}
         style={{ textDecoration: "none", color: "black" }}
@@ -24,7 +22,7 @@ export default async function CardActivity({
           <div className="card_container">
             <div className="circle_activity"></div>
             <h5>
-              {type} a {destination}
+              {description}
             </h5>
           </div>
           <div className="div_price">

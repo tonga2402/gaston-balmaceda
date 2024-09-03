@@ -45,6 +45,7 @@ export type CardActivityProps = {
   dated: string;
   type: string;
   accountId: number;
+  description: string;
 };
 
 export type DeleteCardButtonProps = {
@@ -60,4 +61,23 @@ export type UserType = {
   phone: string;
   firstname: string;
   lastname: string;
+};
+
+export type DepositsProps = {
+  token: string;
+  amount: number;
+  cvu: string;
+  userId: number;
+  id: number;
+};
+
+export type DepositResponse = {
+  account_id: number;
+  amount: number;
+  dated: "string";
+  description: "string";
+  destination: "string";
+  id: number;
+  origin: "string";
+  type: "string";
 };

@@ -25,7 +25,7 @@ export default async function ActivitySection() {
         <Activity token={token ? token : ""} accountId={data.id} />
         <div className="div_arrow">
           <h5>Ver toda tu actividad</h5>
-          <Link href={""} style={{ color: "black" }}>
+          <Link href={"/dashboard/actividad"} style={{ color: "black" }}>
             <IoArrowForwardOutline style={{ fontSize: "25px" }} />
           </Link>
         </div>

@@ -1,34 +1,37 @@
+import Deposits from "@/app/components/dashboard/cargardinero/Deposits";
+import { AccountType } from "@/app/types/dashboard.types";
+import { cookies } from "next/headers";
 import Link from "next/link";
 import { IoCreateOutline } from "react-icons/io5";
 
-const page = ({ params }: { params: { amount: string } }) => {
+export default async function RegisterAmount({
+  params,
+}: {
+  params: { amount: number};
+}) {
+  const cookie = cookies();
+  const authToken = cookie.get("Auth")?.value;
+  const token = authToken?.replace(/['"]+/g, "");
+  const amountNumber = params.amount
+
+  const res = await fetch(`${process.env.API_URL}/api/account`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `${token}`,
+    },
+  });
+  const data: AccountType = await res.json();
+  console.log(amountNumber);
   return (
     <div className="container_initialPage">
-       <div className="container_register_amount">
-      <h3 style={{ color: "var(--primary-color)" }}>
-        Revisá que está todo bien
-      </h3>
-      <div className="register_amount_link">
-        <h4>Vas a transferir</h4>
-        <Link href={""}>
-          <IoCreateOutline className="link_icon_amount" />
-        </Link>
-      </div>
-      <h3>$ {params.amount}</h3>
-      <div>
-        <h5>Para</h5>
-        <h3>Cuenta propia</h3>
-        <h4>Brubank</h4>
-        <h5>CVU 00000000000212121221233312</h5>
-      </div>
-      <div className="enter_amount_link">
-        <Link href={""} className="select_card_button">
-          Continuar
-        </Link>
-      </div>
-    </div>
+      <Deposits
+        token={token ? token : ''}
+        amount={amountNumber}
+        cvu={data.cvu}
+        userId={data.user_id}
+        id={data.id}
+      />
     </div>
   );
-};
-
-export default page;
+}
