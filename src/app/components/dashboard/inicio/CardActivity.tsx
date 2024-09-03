@@ -1,7 +1,8 @@
+'use client'
 import { CardActivityProps } from "@/app/types/dashboard.types";
 import Link from "next/link";
 
-export default async function CardActivity({
+export default  function CardActivity({
   id,
   accountId,
   description,

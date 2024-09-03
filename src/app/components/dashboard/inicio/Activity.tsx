@@ -3,10 +3,7 @@ import CardActivity from "./CardActivity";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import ActivityContainer from "../actividad/ActivityContainer";
 
-
-
-export default async function Activity({ token, accountId }: CardTypeProps , ) {
-
+export default async function Activity({ token, accountId }: CardTypeProps) {
   const res = await fetch(
     `${process.env.API_URL}/api/accounts/${accountId}/activity`,
     {
@@ -26,18 +23,9 @@ export default async function Activity({ token, accountId }: CardTypeProps , ) {
       </>
     );
   }
-  return  (
+  return (
     <>
-    <ActivityContainer  data={data} accountId={accountId}/>
-      {/* <CardActivity
-        accountId={accountId}
-        id={value.id}
-        destination={value.destination}
-        amount={value.amount}
-        dated={value.dated}
-        type={value.type}
-        description={value.description}
-      /> */}
+      <ActivityContainer data={data} accountId={accountId} />
     </>
   );
 }
