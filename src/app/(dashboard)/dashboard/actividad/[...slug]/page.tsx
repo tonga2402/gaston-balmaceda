@@ -1,4 +1,5 @@
-import { ActivityType } from "@/app/types/dashboard.types";
+import { ActivityType, UserType } from "@/app/types/dashboard.types";
+import { jwtDecode, JwtPayload } from "jwt-decode";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { IoCheckmarkSharp } from "react-icons/io5";
@@ -11,9 +12,11 @@ export default async function ActivityDetail({
   const cookie = cookies();
   const authToken = cookie.get("Auth")?.value;
   const token = authToken?.replace(/['"]+/g, "");
+  const user = jwtDecode<JwtPayload>(token as string);
+  const userId = user.username as number;
   const accountId = params.slug[0];
   const id = params.slug[1];
-
+  
   const res = await fetch(
     `${process.env.API_URL}/api/accounts/${accountId}/transactions/${id}`,
     {
@@ -25,7 +28,18 @@ export default async function ActivityDetail({
     }
   );
   const data: ActivityType = await res.json();
-  console.log(data);
+  const newDay = new Date(data.dated)
+  const day = newDay.toLocaleDateString('es-AR')
+
+  const resUser = await fetch(`${process.env.API_URL}/api/users/${userId}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `${token}`,
+    },
+  });
+  const dataUser: UserType = await resUser.json();
+  console.log(dataUser);
   return (
     <div className="container_initialPage">
       <div className="container_background">
@@ -36,14 +50,14 @@ export default async function ActivityDetail({
             </div>
             <h3>Aprobada</h3>
           </div>
-          <h5>Creada el {data.dated}.</h5>
+          <h5>Creada el {day}</h5>
         </div>
         <hr />
         <div className="activity_description">
           <h4>{data.description}</h4>
           <h3>${data.amount}</h3>
           <h4>Le {data.type} a</h4>
-          <h3>Rodrigo Vaccaro</h3>
+          <h3>{dataUser.firstname} {dataUser.lastname}</h3>
           <h4>Número de operación</h4>
           <h3>{data.id}</h3>
         </div>

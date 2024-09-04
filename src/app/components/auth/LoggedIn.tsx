@@ -1,23 +1,22 @@
-"use client";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const LoggedIn = () => {
-  const router = useRouter();
-
-  const goToLink = (href: string) => {
-    router.push(href);
-  };
   return (
     <>
-      <button className="button_google" onClick={() => goToLink("/login")}>
+      <Link
+        href={"/login"}
+        className="button_google"
+        style={{ textDecoration: "none" }}
+      >
         Ingresar
-      </button>
-      <button
+      </Link>
+      <Link
+        href={"/register"}
         className="button_responsive"
-        onClick={() => goToLink("/register")}
+        style={{ textDecoration: "none" }}
       >
         Crear cuenta
-      </button>
+      </Link>
     </>
   );
 };

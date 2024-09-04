@@ -42,7 +42,6 @@ const FormRegister = () => {
     setServerError(null);
     setRegisterOk(true);
     router.push("/login");
-    router.refresh();
     return user;
   };
 
