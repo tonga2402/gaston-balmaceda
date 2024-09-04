@@ -679,6 +679,23 @@ h5 {
 .div_pai_service h2 {
   color: var(--primary-color);
 }
+
+.pagination_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 60%;
+  height: 40px;
+  gap: 20px;
+}
+
+.pagination_container button {
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
 .show_menu{
   display: none;
 }

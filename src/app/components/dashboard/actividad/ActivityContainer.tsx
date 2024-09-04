@@ -13,15 +13,16 @@ type propsType = {
 };
 
 const ActivityContainer = ({ data, accountId }: propsType) => {
-  const dataActivityInicio = data.slice(0, 4);
+  const dataReverse = data.sort(function(a, b){return b.id - a.id})
+  const dataActivityInicio = dataReverse.slice(0, 4);
   const route = usePathname();
-  console.log(route);
+
   return (
     <>
       {route === "/dashboard/inicio" ? (
         <ActivityInicio data={dataActivityInicio} accountId={accountId} />
       ) : (
-        <ActivityPagination data={data} accountId={accountId} />
+        <ActivityPagination data={dataReverse} accountId={accountId} />
       )}
     </>
   );

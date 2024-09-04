@@ -4,12 +4,14 @@ import {
   DepositsProps,
 } from "@/app/types/dashboard.types";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { IoCreateOutline } from "react-icons/io5";
 
 const Deposits = ({ token, amount, cvu, userId, id }: DepositsProps) => {
   const currentDate = new Date().toISOString();
   const newAmount = Number(amount);
+  const router = useRouter()
 
   const dataPost = {
     amount: newAmount,
@@ -31,6 +33,8 @@ const Deposits = ({ token, amount, cvu, userId, id }: DepositsProps) => {
       }
     );
     const depositeData: DepositResponse = await res.json();
+    router.push('/dashboard/inicio')
+    router.refresh()
     console.log(depositeData);
   };
 

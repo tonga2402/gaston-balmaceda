@@ -16,7 +16,9 @@ export default async function InicioSection() {
   });
   const data: AccountType = await res.json();
   const amount = data.available_amount
-  const newAmount = new Intl.NumberFormat('es-AR').format(amount)
+  const newAmount = new Intl.NumberFormat('es-AR',{maximumFractionDigits: 2}).format(amount)
+
+  
 
   if (!data) {
     return <></>;
