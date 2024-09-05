@@ -23,7 +23,7 @@ export default async function CardService({
           <div className="container_enter_amount">
             <h2>Número de cuenta sin el primer 2</h2>
             <input
-              type="text"
+              type="number"
               style={{ width: "450px", marginBottom: "10px" }}
             />
             <p>

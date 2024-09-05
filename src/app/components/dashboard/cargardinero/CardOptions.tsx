@@ -28,7 +28,7 @@ export default function CardOptions({ data }: CardOptionsProps) {
             <input
               type="radio"
               name="filter"
-              value={data1.id}
+              value={data1.number_id}
               onChange={handleChange}
             />
           </div>

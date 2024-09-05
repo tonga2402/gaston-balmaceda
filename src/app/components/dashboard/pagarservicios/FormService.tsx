@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { DepositResponse, FormServiceProps } from "@/app/types/dashboard.types";
+import { AccountType, DepositResponse, FormServiceProps } from "@/app/types/dashboard.types";
+import { useRouter } from "next/navigation";
 
 const FormService = ({
   name,
@@ -10,25 +11,35 @@ const FormService = ({
   accountId,
   children,
 }: FormServiceProps) => {
+  const router = useRouter()
   const currentDate = new Date().toISOString();
-    const [dataService, setDataService] = useState({
-      amount: invoiceValue,
-      dated: "string",
-      description: "string",
-    });
+  const cardPay = localStorage.getItem("xcode");
+  const [dataService, setDataService] = useState({
+    amount: -invoiceValue,
+    dated: currentDate,
+    description: name,
+  });
+  console.log(dataService);
   const handleTransaction = async () => {
-    const res = await fetch(
-      `https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/transactions`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        body: JSON.stringify(""),
-      }
-    );
-    const transactionData: DepositResponse = await res.json();
+    try {
+      
+      const res = await fetch(
+        `https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/transactions`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+          body: JSON.stringify(dataService),
+        }
+      );
+      const transactionData: DepositResponse = await res.json();
+      router.push(`detalledepago/${accountId}/${transactionData.id}/${name}/${cardPay}`)
+      console.log(transactionData)
+    } catch (error) {
+      
+
   };
   return (
     <>
@@ -55,18 +66,18 @@ const FormService = ({
         }}
       >
         <div className="enter_amount_link">
-          <Link href={""} className="select_card_button">
+          <button className="select_card_button" >
             Pagar con cuenta
-          </Link>
+          </button>
         </div>{" "}
         <div className="enter_amount_link">
-          <Link href={""} className="select_card_button">
+          <button className="select_card_button" onClick={handleTransaction}>
             Pagar con tarjeta
-          </Link>
+          </button>
         </div>
       </div>
     </>
   );
 };
-
+}
 export default FormService;
