@@ -1,18 +1,15 @@
+"use client";
 import { CardType, CardTypeProps } from "@/app/types/dashboard.types";
+import { useState } from "react";
+type CardOptionsProps = {
+  data: CardType[];
+};
+export default function CardOptions({ data }: CardOptionsProps) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const { value } = e.target;
+    localStorage.setItem("xcode", value);
+  }
 
-export default async function CardOptions(cardData: CardTypeProps) {
-  const res = await fetch(
-    `${process.env.API_URL}/api/accounts/${cardData.accountId}/cards`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `${cardData.token}`,
-      },
-    }
-  );
-  const data: CardType[] = await res.json();
-  console.log(data);
   if (data.length === 0) {
     <></>;
   }
@@ -28,7 +25,12 @@ export default async function CardOptions(cardData: CardTypeProps) {
                 Terminada en {data1.number_id.toString().slice(12)}
               </label>
             </div>
-            <input type="radio" id="3" name="filter" />
+            <input
+              type="radio"
+              name="filter"
+              value={data1.id}
+              onChange={handleChange}
+            />
           </div>
           <hr />
         </div>

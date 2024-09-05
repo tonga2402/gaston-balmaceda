@@ -81,3 +81,17 @@ export type DepositResponse = {
   origin: "string";
   type: "string";
 };
+
+export type FormServiceProps = {
+  name: string;
+  invoiceValue: number;
+  token: string;
+  accountId: number;
+  children: React.ReactNode
+};
+
+export type TransactionResponse = {
+  amount: number;
+  dated: string;
+  description: string;
+};
