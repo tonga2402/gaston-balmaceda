@@ -1,4 +1,5 @@
 'use client'
+import { MESES } from "@/app/const/Month";
 import { CardActivityProps } from "@/app/types/dashboard.types";
 import Link from "next/link";
 
@@ -11,7 +12,9 @@ export default  function CardActivity({
 }: CardActivityProps) {
   const newAmount = new Intl.NumberFormat('es-AR').format(amount)
   const newDay = new Date(dated)
-  const day = newDay.toLocaleDateString('es-AR')
+  const day = newDay.getDay();
+  const month = MESES[newDay.getMonth()];
+  const year = newDay.getFullYear();
 
   return (
     <div key={id}>
@@ -28,7 +31,7 @@ export default  function CardActivity({
           </div>
           <div className="div_price">
             <h5>-$ {newAmount}</h5>
-            <h6>{day}</h6>
+            <h6>{day} de {month} {year}</h6>
           </div>
         </div>
       </Link>

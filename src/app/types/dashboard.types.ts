@@ -65,7 +65,6 @@ export type UserType = {
 
 export type DepositsProps = {
   token: string;
-  amount: number;
   cvu: string;
   userId: number;
   id: number;

@@ -7,7 +7,7 @@ type CardOptionsProps = {
 export default function CardOptions({ data }: CardOptionsProps) {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { value } = e.target;
-    localStorage.setItem("xcode", value);
+    localStorage.setItem("xcode", value.slice(12));
   }
 
   if (data.length === 0) {

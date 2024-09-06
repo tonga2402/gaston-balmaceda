@@ -1,28 +1,27 @@
 "use client";
-import {
-  DepositResponse,
-  DepositsProps,
-} from "@/app/types/dashboard.types";
+import { DepositResponse, DepositsProps } from "@/app/types/dashboard.types";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { IoCreateOutline } from "react-icons/io5";
 
-const Deposits = ({ token, amount, cvu, userId, id }: DepositsProps) => {
+const Deposits = ({ token, cvu, userId, id }: DepositsProps) => {
   const currentDate = new Date().toISOString();
-  const newAmount = Number(amount);
-  const router = useRouter()
+  const newAmount = localStorage.getItem("xamount");
+  const amount = Number(newAmount);
+  const router = useRouter();
 
   const dataPost = {
-    amount: newAmount,
+    amount: amount,
     dated: currentDate,
     destination: cvu,
     origin: cvu,
   };
 
   const handleDeposite = async () => {
+    localStorage.removeItem('xamount')
     const res = await fetch(
-      `https://digitalmoney.digitalhouse.com/api/accounts/${id}/deposits`,
+      `https://digitalmoney.digitalhouse.com/api/accounts/8/deposits`,
       {
         method: "POST",
         headers: {
@@ -33,9 +32,13 @@ const Deposits = ({ token, amount, cvu, userId, id }: DepositsProps) => {
       }
     );
     const depositeData: DepositResponse = await res.json();
-    router.push('/dashboard/inicio')
-    router.refresh()
-    console.log(depositeData);
+
+    router.push(
+      `/dashboard/cargardinero/ingresarmonto/deposito/${amount}/${depositeData.account_id}/${depositeData.id}`
+    );
+    router.refresh();
+
+    console.log(dataPost, depositeData);
   };
 
   return (
@@ -49,7 +52,7 @@ const Deposits = ({ token, amount, cvu, userId, id }: DepositsProps) => {
           <IoCreateOutline className="link_icon_amount" />
         </Link>
       </div>
-      <h3>$ {amount}</h3>
+      <h3>$ {newAmount}</h3>
       <div>
         <h5>Para</h5>
         <h3>Cuenta propia</h3>
@@ -57,9 +60,9 @@ const Deposits = ({ token, amount, cvu, userId, id }: DepositsProps) => {
         <h5>CVU {cvu}</h5>
       </div>
       <div className="enter_amount_link">
-        <Link href={""} className="select_card_button" onClick={handleDeposite}>
+        <button className="select_card_button" onClick={handleDeposite}>
           Continuar
-        </Link>
+        </button>
       </div>
     </div>
   );

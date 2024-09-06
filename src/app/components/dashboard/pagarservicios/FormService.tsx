@@ -1,7 +1,11 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { AccountType, DepositResponse, FormServiceProps } from "@/app/types/dashboard.types";
+import {
+  AccountType,
+  DepositResponse,
+  FormServiceProps,
+} from "@/app/types/dashboard.types";
 import { useRouter } from "next/navigation";
 
 const FormService = ({
@@ -11,7 +15,7 @@ const FormService = ({
   accountId,
   children,
 }: FormServiceProps) => {
-  const router = useRouter()
+  const router = useRouter();
   const currentDate = new Date().toISOString();
   const cardPay = localStorage.getItem("xcode");
   const [dataService, setDataService] = useState({
@@ -22,7 +26,6 @@ const FormService = ({
   console.log(dataService);
   const handleTransaction = async () => {
     try {
-      
       const res = await fetch(
         `https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/transactions`,
         {
@@ -35,11 +38,53 @@ const FormService = ({
         }
       );
       const transactionData: DepositResponse = await res.json();
-      router.push(`detalledepago/${accountId}/${transactionData.id}/${name}/${cardPay}`)
-      console.log(transactionData)
-    } catch (error) {
-      
+      router.push(
+        `detalledepago/${accountId}/${transactionData.id}/${name}/${cardPay}`
+      );
+    } catch (error) {}
+  };
+  const handleTransactionAccount = async () => {
+    try {
+      const res = await fetch(
+        `https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/transactions`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+          body: JSON.stringify(dataService),
+        }
+      );
+      const transactionData: DepositResponse = await res.json();
+      router.push(
+        `detalledepago/${accountId}/${transactionData.id}/${name}`
+      );
+    } catch (error) {}
+  };
 
+
+
+
+
+  const handleAccount = async () => {
+    try {
+      const res = await fetch(
+        `https://digitalmoney.digitalhouse.com/api/account`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+        }
+      );
+      const transactionAccount: AccountType = await res.json();
+      if (transactionAccount.available_amount >= invoiceValue) {
+        handleAccount()
+      }
+   
+    } catch (error) {}
   };
   return (
     <>
@@ -66,9 +111,7 @@ const FormService = ({
         }}
       >
         <div className="enter_amount_link">
-          <button className="select_card_button" >
-            Pagar con cuenta
-          </button>
+          <button className="select_card_button" onClick={handleTransactionAccount}>Pagar con cuenta</button>
         </div>{" "}
         <div className="enter_amount_link">
           <button className="select_card_button" onClick={handleTransaction}>
@@ -79,5 +122,4 @@ const FormService = ({
     </>
   );
 };
-}
 export default FormService;

@@ -61,7 +61,7 @@ export default async function CardService({
             </div>
             <div style={{ marginTop: "25px" }}>
               <div className="enter_amount_link">
-                <Link href={""} className="select_card_button">
+                <Link href={"/dashboard/pagarservicios"} className="select_card_button">
                   Revisar Dato
                 </Link>
               </div>

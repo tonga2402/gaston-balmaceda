@@ -1,12 +1,18 @@
 "use client";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const EnterAmount = () => {
   const [amount, setAmount] = useState<number>(0);
+  const route = useRouter()
 
   const onChangeHandler = (e : React.ChangeEvent<HTMLInputElement>) => {
     setAmount(e.target.valueAsNumber)
+  }
+
+  const handleAmount = () => {
+    localStorage.setItem('xamount',JSON.stringify(amount))
+    route.push('/dashboard/cargardinero/ingresarmonto/deposito')
   }
 
   return (
@@ -14,9 +20,9 @@ const EnterAmount = () => {
       <h2>¿Cuánto querés ingresar a la cuenta?</h2>
       <input type="number" placeholder="$0" onChange={onChangeHandler} />
       <div className="enter_amount_link">
-        <Link href={`/dashboard/cargardinero/ingresarmonto/${amount}`} className="select_card_button">
+        <button className="select_card_button" onClick={handleAmount}>
           Continuar
-        </Link>
+        </button>
       </div>
     </div>
   );
