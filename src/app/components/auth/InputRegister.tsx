@@ -7,7 +7,7 @@ type InputPasswordProps = {
   name: string;
   type: string;
 };
-const InputPassword = ({ name,type}: InputPasswordProps) => {
+const InputRegister = ({ name,type}: InputPasswordProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const handleShowPassword = () => {
@@ -19,6 +19,7 @@ const InputPassword = ({ name,type}: InputPasswordProps) => {
         type={showPassword ? 'text' : type}
         name={name}
         placeholder={"Contraseña"}
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,20}$"
         required
       />
       <div className="password_icon" onClick={handleShowPassword}>
@@ -28,4 +29,4 @@ const InputPassword = ({ name,type}: InputPasswordProps) => {
   );
 };
 
-export default InputPassword;
+export default InputRegister;

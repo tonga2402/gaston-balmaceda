@@ -10,9 +10,9 @@ const LogoutButton = () => {
     return logout;
   };
   return (
-    <Link className="link" href={""} onClick={handleLogout}>
+    <div className="link" onClick={handleLogout}>
       <span>Cerrar sesión</span>
-    </Link>
+    </div>
   );
 };
 
