@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import Check from "@/app/UI-KIT/Check.png";
 import { useRouter } from "next/navigation";

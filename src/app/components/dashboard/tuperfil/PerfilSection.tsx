@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import FormPerfil from "./FormPerfil";
 import { UserType } from "@/app/types/dashboard.types";
 
+
 export default async function PerfilSection() {
   const cookie = cookies();
   const tokenValue = cookie.get("Auth")?.value;

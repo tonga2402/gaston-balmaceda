@@ -36,3 +36,9 @@ export type InputTextProps = {
   placeholder?: string;
   fieldName: string;
 };
+
+export type UserData = {
+  username: string,
+  email: string,
+  exp: number
+}
