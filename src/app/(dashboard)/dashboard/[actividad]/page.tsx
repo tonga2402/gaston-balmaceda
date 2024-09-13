@@ -1,15 +1,21 @@
-import FilterSearchSection from "@/app/components/dashboard/actividad/FilterSearchSection";
 import FilterSection from "@/app/components/dashboard/actividad/FilterSection";
 import ShowActivitySection from "@/app/components/dashboard/actividad/ShowActivitySection";
+import SearchSection from "@/app/components/dashboard/inicio/SearchSection";
 
-const page = () => {
+const page = ({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string };
+}) => {
+  const params = searchParams.search
+  console.log(params)
   return (
     <div className="container_initialPage">
       <div className="container_filter">
-        <FilterSearchSection />
+        <SearchSection />
         <FilterSection />
       </div>
-      <ShowActivitySection />
+      <ShowActivitySection params={params}/>
     </div>
   );
 };

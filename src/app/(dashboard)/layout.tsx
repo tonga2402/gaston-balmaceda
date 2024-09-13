@@ -3,7 +3,7 @@ import HeaderDashboard from "../components/dashboard/HeaderDashboard";
 import Navbar from "../components/dashboard/Navbar";
 import Footer from "../components/landingPage/Footer";
 import "./dashboard.css";
-
+import { Suspense } from "react";
 
 export default function DashboardLayout({
   children,
@@ -15,8 +15,8 @@ export default function DashboardLayout({
       <body>
         <HeaderDashboard />
         <Navbar />
-        {children}
-        <Toaster/>
+        <Suspense fallback={"...cargando"}>{children}</Suspense>
+        <Toaster />
         <Footer />
       </body>
     </html>

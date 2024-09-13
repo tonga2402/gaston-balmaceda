@@ -3,6 +3,7 @@ import { IoArrowForwardOutline } from "react-icons/io5";
 import { cookies } from "next/headers";
 import Activity from "./Activity";
 import { AccountType } from "@/app/types/dashboard.types";
+import ShowActivitySection from "../actividad/ShowActivitySection";
 
 export default async function ActivitySection() {
   const cookie = cookies();
@@ -22,7 +23,8 @@ export default async function ActivitySection() {
     <section>
       <div className="container_activity">
         <h5>Tu actividad</h5>
-        <Activity token={token ? token : ""} accountId={data.id} />
+        <Activity token={token ? token : ""} accountId={data.id} /> 
+
         <div className="div_arrow">
           <h5>Ver toda tu actividad</h5>
           <Link href={"/dashboard/actividad"} style={{ color: "black" }}>
