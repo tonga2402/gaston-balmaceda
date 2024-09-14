@@ -16,7 +16,6 @@ const ActivityPagination = ({ data, accountId }: propsType) => {
   const firstActivityIndex = lastActivityIndex - activityPerPage;
   const currentPost = data.slice(firstActivityIndex, lastActivityIndex);
 
-  console.log(data);
   return (
     <>
       {currentPost.map((info) => (

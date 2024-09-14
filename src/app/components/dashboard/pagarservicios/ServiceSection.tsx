@@ -11,9 +11,8 @@ export default async function ServiceSection({ params }: ServiceSectionProps) {
 
   const data: CardServiceData[] = await res.json();
 
-  const filterService = data.filter((data)=> data.name.includes(params))
- const serviceData = params ? filterService : data 
-  console.log(filterService)
+  const filterService = data.filter((data) => data.name.includes(params));
+  const serviceData = params ? filterService : data;
 
   return (
     <section>
