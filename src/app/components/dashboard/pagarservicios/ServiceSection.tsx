@@ -1,19 +1,26 @@
 import { CardServiceData } from "@/app/types/dashboard.types";
 import Link from "next/link";
 
-export default async function ServiceSection() {
+type ServiceSectionProps = {
+  params: string;
+};
+export default async function ServiceSection({ params }: ServiceSectionProps) {
   const res = await fetch(`${process.env.API_URL}/service`, {
     method: "GET",
   });
 
   const data: CardServiceData[] = await res.json();
-  console.log(data);
+
+  const filterService = data.filter((data)=> data.name.includes(params))
+ const serviceData = params ? filterService : data 
+  console.log(filterService)
+
   return (
     <section>
       <div className="container_activity">
         <h4>Mas recientes</h4>
         <hr />
-        {data.map((data1) => (
+        {serviceData.map((data1) => (
           <div key={data1.id}>
             <div className="card_activity">
               <div className="card_container">

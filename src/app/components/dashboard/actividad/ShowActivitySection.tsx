@@ -33,7 +33,7 @@ export default async function ShowActivitySection({ params }: ShowActivitySectio
   const dataActivity: ActivityType[] = await resActivity.json();
 
   const filterSearch = dataActivity.filter((data)=> data.description.includes(params))
-  console.log(filterSearch)
+
 
   return (
     <section>

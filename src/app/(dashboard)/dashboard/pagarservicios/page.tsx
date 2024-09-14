@@ -1,11 +1,16 @@
 import SearchService from "@/app/components/dashboard/pagarservicios/SearchService";
 import ServiceSection from "@/app/components/dashboard/pagarservicios/ServiceSection";
 
-const page = () => {
+const page = ({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string };
+}) => {
+  const params = searchParams.search;
   return (
     <div className="container_initialPage">
       <SearchService />
-      <ServiceSection />
+      <ServiceSection params={params}/>
     </div>
   );
 };

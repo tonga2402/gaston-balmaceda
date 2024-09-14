@@ -1,5 +1,5 @@
 "use client";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter} from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { useDebounce } from "use-debounce";
@@ -9,8 +9,7 @@ const SearchSection = () => {
   const [text, setText] = useState<string>("");
   const [query] = useDebounce(text, 500);
   const pathname = usePathname();
-  // const searchParams = useSearchParams();
-  // console.log(searchParams, pathname);
+
 
   useEffect(() => {
     if (!query && pathname === "/dashboard/actividad") {
