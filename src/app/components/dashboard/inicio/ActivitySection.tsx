@@ -20,7 +20,7 @@ export default async function ActivitySection() {
   const data: AccountType = await res.json();
 
   return (
-    <section>
+    <>
       <div className="container_activity">
         <h5>Tu actividad</h5>
         <Activity token={token ? token : ""} accountId={data.id} /> 
@@ -32,6 +32,6 @@ export default async function ActivitySection() {
           </Link>
         </div>
       </div>
-    </section>
+    </>
   );
 }

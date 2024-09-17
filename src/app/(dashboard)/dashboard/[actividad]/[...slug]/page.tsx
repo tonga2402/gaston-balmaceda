@@ -7,7 +7,7 @@ import { IoCheckmarkSharp } from "react-icons/io5";
 export default async function ActivityDetail({
   params,
 }: {
-  params: { slug: string[] };
+  params: {  slug: string []};
 }) {
   const cookie = cookies();
   const authToken = cookie.get("Auth")?.value;
@@ -16,7 +16,7 @@ export default async function ActivityDetail({
   const userId = user.username as number;
   const accountId = params.slug[0];
   const id = params.slug[1];
-  
+  console.log(accountId,id)
   const res = await fetch(
     `${process.env.API_URL}/api/accounts/${accountId}/transactions/${id}`,
     {

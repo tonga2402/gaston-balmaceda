@@ -18,7 +18,7 @@
 
 body {
   width: 100%;
-
+  min-height: 100vh;
   margin-left: 0;
   margin-top: 0;
   background-color: var(--dash-color);
@@ -36,9 +36,7 @@ body {
 }
 
 .footer_container {
-   bottom: 0px; 
-z-index: 10;
-position: sticky;
+  position: sticky;
   padding: 10px 15px;
   background-color: var(--fotter-color);
   height: 64px;
@@ -52,7 +50,7 @@ position: sticky;
 }
 
 .navbar_container {
-  height: 100vh;
+  min-height: 100vw;
   width: 25vh;
   background-color: var(--primary-color);
   padding: 25px;
@@ -116,7 +114,6 @@ position: sticky;
   top: 50vh;
   transform: translate(35vh, -35vh);
   width: 70vw;
-  
 }
 
 .container_section {
@@ -710,6 +707,7 @@ h5 {
 @media screen and (max-width: 834px) {
   .navbar_container {
     width: 15vh;
+    min-height: 100vh;
   }
   .container_initialPage {
     transform: translate(18vh, -40vh);
@@ -733,16 +731,22 @@ h5 {
   .navbar_container {
     display: none;
   }
-  .footer_container {
-    position: absolute;
-  }
 
   .container_initialPage {
     position: relative;
-    margin-top: -50px;
-    margin-left: -133px;
-    width: 90vw;
+    transform: translate(3vh, -45vh);
+    width: 87vw;
+    margin-bottom: 80px;
+    min-height: 100vh;
   }
+  
+  .container_activity {
+  }
+
+  .footer_container {
+
+  }
+
   .container_service {
     display: block;
   }
@@ -756,16 +760,18 @@ h5 {
     font-size: 25px;
   }
 
+
   .container_menu_mobile {
     position: absolute;
     display: inline;
     top: 64px;
     left: 0;
     width: 100%;
+    height: 100%;
   }
   .div_menu_mobile {
     display: flex;
-    height: 100vh;
+    min-height: 950px;
     flex-direction: column;
     background-color: var(--primary-color);
     padding: 30px 50px;
@@ -787,14 +793,4 @@ h5 {
   .div_newCard input {
     width: 280px;
   }
-
-  .footer_container {
-    position: absolute;
-    bottom: 0;
-
-  }
-  body{
-min-height: 100vh;
-  }
-
 }

@@ -25,7 +25,7 @@ export default async function InicioSection() {
   }
 
   return (
-    <section className="container_section">
+    <div className="container_section">
       <div className="section_link">
         <Link className="link_dashboard" href={"/dashboard/tarjetas"}>
           Ver tarjetas
@@ -36,6 +36,6 @@ export default async function InicioSection() {
       </div>
       <h4>Dinero disponible</h4>
       <h2>$ {newAmount}</h2>
-    </section>
+    </div>
   );
 }

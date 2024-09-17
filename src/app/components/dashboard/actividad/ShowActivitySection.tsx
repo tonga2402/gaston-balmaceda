@@ -35,23 +35,22 @@ export default async function ShowActivitySection({
   const dataActivity: ActivityType[] = await resActivity.json();
 
   if (!resActivity.ok) {
-    return new Error();
+    return <></>;
   }
   const filterSearch = dataActivity?.filter((data) =>
     data?.description.includes(params)
   );
 
   return (
-    <section>
+
       <div className="container_activity">
         <h5>Tu actividad</h5>
-        {/* <Activity token={token ? token : ""} accountId={data.id} /> */}
         <ActivityContainer
           data={params ? filterSearch : dataActivity}
           accountId={data.id}
         />
         <div className="div_arrow"></div>
       </div>
-    </section>
+
   );
 }

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const ButtonSection = () => {
   return (
-    <section className="container_service">
+    <div className="container_service">
       <div className="button_service">
         <Link className="button_link" href={"/dashboard/cargardinero"}>
           Cargar dinero
@@ -14,7 +14,7 @@ const ButtonSection = () => {
           Pago de servicios
         </Link>
       </div>
-    </section>
+    </div>
   );
 };
 
