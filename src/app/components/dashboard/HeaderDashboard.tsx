@@ -3,6 +3,7 @@ import Link from "next/link";
 import Logo from "@/app/UI-KIT/LogoLandingPage.png";
 import UserHeader from "./UserHeader";
 import { Suspense } from "react";
+import { MoonLoader } from "react-spinners";
 
 const HeaderDashboard = () => {
   return (
@@ -13,7 +14,7 @@ const HeaderDashboard = () => {
         </Link>
       </div>
       <div className="avatar_container">
-        <Suspense fallback={<p>cargando</p>}>
+        <Suspense fallback={<p>...cargando</p>}>
           <UserHeader />
         </Suspense>
       </div>

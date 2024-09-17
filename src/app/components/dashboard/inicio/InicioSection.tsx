@@ -20,8 +20,8 @@ export default async function InicioSection() {
 
   
 
-  if (!data) {
-    return <></>;
+  if (!res.ok) {
+    return <></>
   }
 
   return (

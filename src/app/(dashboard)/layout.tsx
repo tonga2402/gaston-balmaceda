@@ -4,6 +4,7 @@ import Navbar from "../components/dashboard/Navbar";
 import Footer from "../components/landingPage/Footer";
 import "./dashboard.css";
 import { Suspense } from "react";
+import Loading from "./loading";
 
 export default function DashboardLayout({
   children,
@@ -15,7 +16,7 @@ export default function DashboardLayout({
       <body>
         <HeaderDashboard />
         <Navbar />
-        <Suspense fallback={"...cargando"}>{children}</Suspense>
+        <Suspense fallback={<Loading />}>{children}</Suspense>
         <Toaster />
         <Footer />
       </body>

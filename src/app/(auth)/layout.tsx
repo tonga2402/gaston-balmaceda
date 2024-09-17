@@ -1,7 +1,8 @@
-import Footer from '../components/landingPage/Footer';
-import HeaderAuth from '../components/landingPage/HeaderAuth';
-import './auth.css'
-
+import { Suspense } from "react";
+import Footer from "../components/landingPage/Footer";
+import HeaderAuth from "../components/landingPage/HeaderAuth";
+import "./auth.css";
+import Loading from "./loading";
 
 export default function AuthLayout({
   children,
@@ -12,7 +13,7 @@ export default function AuthLayout({
     <html>
       <body>
         <HeaderAuth />
-        {children}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
         <Footer />
       </body>
     </html>

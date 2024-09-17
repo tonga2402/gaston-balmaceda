@@ -19,7 +19,10 @@ export default async function PerfilSection() {
     },
   });
   const data: UserType = await res.json();
-console.log(data)
+  if(!res.ok){
+    return <></>
+  } 
+
   return (
     <section>
       <FormPerfil user={{

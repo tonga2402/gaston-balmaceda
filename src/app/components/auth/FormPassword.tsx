@@ -7,6 +7,7 @@ import InputPassword from "./InputPassword";
 
 const FormPassword = () => {
   const router = useRouter();
+
   const [localEmail, setLocalEmail] = useState<string>("");
   const [error, setError] = useState<string | undefined>("");
 

@@ -19,7 +19,7 @@ export default async function Card(cardData: CardTypeProps) {
   }
   return (
     <>
-      {data.map((data1) => (
+      {data?.map((data1) => (
         <div key={data1.id}>
           <div className="card_activity">
             <div className="card_container">

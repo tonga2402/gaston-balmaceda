@@ -6,7 +6,9 @@ import ActivityContainer from "./ActivityContainer";
 type ShowActivitySectionProps = {
   params: string;
 };
-export default async function ShowActivitySection({ params }: ShowActivitySectionProps) {
+export default async function ShowActivitySection({
+  params,
+}: ShowActivitySectionProps) {
   const cookie = cookies();
   const authToken = cookie.get("Auth")?.value;
   const token = authToken?.replace(/['"]+/g, "");
@@ -32,15 +34,22 @@ export default async function ShowActivitySection({ params }: ShowActivitySectio
   );
   const dataActivity: ActivityType[] = await resActivity.json();
 
-  const filterSearch = dataActivity.filter((data)=> data.description.includes(params))
-
+  if (!resActivity.ok) {
+    return new Error();
+  }
+  const filterSearch = dataActivity?.filter((data) =>
+    data?.description.includes(params)
+  );
 
   return (
     <section>
       <div className="container_activity">
         <h5>Tu actividad</h5>
         {/* <Activity token={token ? token : ""} accountId={data.id} /> */}
-        <ActivityContainer data={params ? filterSearch : dataActivity} accountId={data.id} />
+        <ActivityContainer
+          data={params ? filterSearch : dataActivity}
+          accountId={data.id}
+        />
         <div className="div_arrow"></div>
       </div>
     </section>

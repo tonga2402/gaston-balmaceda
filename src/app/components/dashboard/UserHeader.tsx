@@ -19,8 +19,8 @@ export default async function UserHeader() {
   });
   const data: UserType = await res.json();
 
-  const dataFirstName = data.firstname.toUpperCase();
-  const dataLastName = data.lastname.toUpperCase();
+  const dataFirstName = data.firstname?.toUpperCase();
+  const dataLastName = data.lastname?.toUpperCase();
 
   if (!data.firstname) {
     return <></>;

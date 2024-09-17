@@ -16,7 +16,7 @@ export default function CardOptions({ data }: CardOptionsProps) {
 
   return (
     <>
-      {data.map((data1) => (
+      {data?.map((data1) => (
         <div key={data1.id}>
           <div className="card_options_container">
             <div className="div_card_options">
