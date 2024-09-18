@@ -1,9 +1,9 @@
-import { MoonLoader } from "react-spinners";
+import { MoonLoader, SyncLoader } from "react-spinners";
 
 export default function Loading() {
   return (
-    <div>
-      <MoonLoader />
+    <div className="container_initialPage">
+      <SyncLoader />
     </div>
   );
 }

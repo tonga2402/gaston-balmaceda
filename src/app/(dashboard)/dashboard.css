@@ -771,7 +771,7 @@ h5 {
   }
   .div_menu_mobile {
     display: flex;
-    min-height: 950px;
+    min-height: 1010px;
     flex-direction: column;
     background-color: var(--primary-color);
     padding: 30px 50px;
@@ -784,8 +784,12 @@ h5 {
   }
 
   .container_newCard {
-    left: 4%;
+    margin-left: -90px;
+    margin-top: -70px;
+    width: 90vw;
     height: 670px;
+    position: relative;
+    margin-bottom: 140px;
   }
   .div_newCard {
     margin-bottom: 30px;
