@@ -9,7 +9,6 @@ const page = ({
 }) => {
   const params = searchParams.search;
   const filter = searchParams.filter
-  console.log(searchParams)
 
   return (
     <div className="container_initialPage">

@@ -26,7 +26,7 @@ export default async function ServiceContainer({
     },
   });
   const accountData: AccountType = await accountRes.json();
-  console.log(accountData);
+
   return (
     <div className="container_initialPage">
       <FormService
@@ -34,7 +34,9 @@ export default async function ServiceContainer({
         invoiceValue={serviceData.invoice_value}
         token={token ? token : ""}
         accountId={accountData.id}
-      ><SelectCardOptions/></FormService>
+      >
+        <SelectCardOptions />
+      </FormService>
     </div>
   );
 }

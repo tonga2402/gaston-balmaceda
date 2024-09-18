@@ -7,7 +7,7 @@ import { IoCheckmarkSharp } from "react-icons/io5";
 export default async function ActivityDetail({
   params,
 }: {
-  params: {  slug: string []};
+  params: { slug: string[] };
 }) {
   const cookie = cookies();
   const authToken = cookie.get("Auth")?.value;
@@ -16,7 +16,7 @@ export default async function ActivityDetail({
   const userId = user.username as number;
   const accountId = params.slug[0];
   const id = params.slug[1];
-  console.log(accountId,id)
+
   const res = await fetch(
     `${process.env.API_URL}/api/accounts/${accountId}/transactions/${id}`,
     {
@@ -28,8 +28,8 @@ export default async function ActivityDetail({
     }
   );
   const data: ActivityType = await res.json();
-  const newDay = new Date(data.dated)
-  const day = newDay.toLocaleDateString('es-AR')
+  const newDay = new Date(data.dated);
+  const day = newDay.toLocaleDateString("es-AR");
 
   const resUser = await fetch(`${process.env.API_URL}/api/users/${userId}`, {
     method: "GET",
@@ -39,7 +39,7 @@ export default async function ActivityDetail({
     },
   });
   const dataUser: UserType = await resUser.json();
-  console.log(dataUser);
+
   return (
     <div className="container_initialPage">
       <div className="container_background">
@@ -57,7 +57,9 @@ export default async function ActivityDetail({
           <h4>{data.description}</h4>
           <h3>${data.amount}</h3>
           <h4>Le {data.type} a</h4>
-          <h3>{dataUser.firstname} {dataUser.lastname}</h3>
+          <h3>
+            {dataUser.firstname} {dataUser.lastname}
+          </h3>
           <h4>Número de operación</h4>
           <h3>{data.id}</h3>
         </div>

@@ -1,11 +1,11 @@
-import EnterAmount from '@/app/components/dashboard/cargardinero/EnterAmount'
+import EnterAmount from "@/app/components/dashboard/cargardinero/EnterAmount";
 
 const page = () => {
   return (
-    <div className='container_initialPage'>
-        <EnterAmount />
-</div>
-  )
-}
+    <div className="container_initialPage">
+      <EnterAmount />
+    </div>
+  );
+};
 
-export default page
+export default page;

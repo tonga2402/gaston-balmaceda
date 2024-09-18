@@ -1,5 +1,4 @@
-import FormEmail from '@/app/components/auth/FormEmail';
-import React from 'react'
+import FormEmail from "@/app/components/auth/FormEmail";
 
 function EmailPage() {
   return (
@@ -10,4 +9,3 @@ function EmailPage() {
 }
 
 export default EmailPage;
-

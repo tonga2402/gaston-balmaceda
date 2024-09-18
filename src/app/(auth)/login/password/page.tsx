@@ -1,5 +1,4 @@
-import FormPassword from '@/app/components/auth/FormPassword';
-import React from 'react'
+import FormPassword from "@/app/components/auth/FormPassword";
 
 function PasswordPage() {
   return (

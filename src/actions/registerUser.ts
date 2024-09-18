@@ -1,7 +1,6 @@
 "use server";
 
 export const registerUser = async (formData: FormData) => {
-  console.log(formData);
   const res = await fetch(`${process.env.API_URL}/api/users`, {
     method: "POST",
     headers: {
@@ -17,16 +16,14 @@ export const registerUser = async (formData: FormData) => {
     }),
   });
   const createUser = await res.json();
-  console.log(createUser);
+
   if (res.ok) {
+    return createUser;
+  } else if (res.status === 400) {
+    return { message: "Verificar datos ingresados" };
+  } else if (res.status === 409) {
+    return { message: "Email ya registrado" };
+  }
 
-   return createUser
-    } else if (res.status === 400) {
-      return { message: "Verificar datos ingresados" };
-   }else if (res.status === 409){
-
-       return { message: "Email ya registrado" };
-   }
-
-   return { message:' Intente mas tarde'}
+  return { message: " Intente mas tarde" };
 };

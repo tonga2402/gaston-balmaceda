@@ -1,6 +1,4 @@
-import React from 'react'
-import FormRegister from '@/app/components/auth/FormRegister';
-
+import FormRegister from "@/app/components/auth/FormRegister";
 
 function RegisterPage() {
   return (
