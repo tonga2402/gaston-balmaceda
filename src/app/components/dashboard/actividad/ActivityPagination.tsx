@@ -10,7 +10,7 @@ type propsType = {
 };
 const ActivityPagination = ({ data, accountId }: propsType) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [activityPerPage, setActivityPerPage] = useState<number>(4);
+  const [activityPerPage, setActivityPerPage] = useState<number>(10);
 
   const lastActivityIndex = currentPage * activityPerPage;
   const firstActivityIndex = lastActivityIndex - activityPerPage;

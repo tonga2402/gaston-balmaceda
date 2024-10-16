@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description: "E-Commerce",
 };
 
+
 export default function LandingPageLayout({
   children,
 }: Readonly<{

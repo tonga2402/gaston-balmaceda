@@ -79,7 +79,7 @@ const HeadersContain = ({
         </div>
       )}
       <p>Hola,</p>
-      <Link className="link_dashboard" href={"/dashboard"}>
+      <Link className="link_dashboard" href={"/dashboard/inicio"}>
         {firstName[0].toLocaleUpperCase() +
           firstName.substring(1).toLocaleLowerCase()}{" "}
         {lastName[0].toLocaleUpperCase() +
