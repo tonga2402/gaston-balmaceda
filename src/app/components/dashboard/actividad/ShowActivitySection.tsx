@@ -34,13 +34,10 @@ export default async function ShowActivitySection({
   );
   const dataActivity: ActivityType[] = await resActivity.json();
  
-
-  const filterData = dataActivity.map(iten => ({...iten, description: iten.description.toLowerCase()}))
-  const filterSearch = filterData?.filter((data) =>
-    data?.description.includes(params)
+  const filterSearch = dataActivity?.filter((data) =>
+    data?.description.toLowerCase().includes(params)
   );
 
-  console.log(params)
 
   return (
 

@@ -13,7 +13,7 @@ const page = ({
   return (
     <div className="container_initialPage">
       <div className="container_filter">
-        <SearchSection />
+        <SearchSection params={params}/>
         <FilterSection />
       </div>
       <ShowActivitySection params={params} />
