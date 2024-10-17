@@ -164,28 +164,78 @@ body {
       background-image: url('../app/UI-KIT/pexels-cottonbro-4009024 1.png');
   }
   .main_fixed{
-      height: 450px;
+      height: 40vh;
+      border-radius: 20px 20px 0px 0px;
+  }
+  .main_container p {
+
+    font-size: clamp(1.2rem , 6vw , 2.5rem);
+    margin-bottom: 10px;
+  }  
+  .main_container h2 {
+    font-size: clamp(1.2rem , 6vw , 2.5rem);
   }
   .card_landing_section {
-      margin-top: 230px;
+      margin-top: 220px;
+  } 
+   .card_landing_container {
+      margin-top: -30%;
+      width: 55vh;
   }
   .main_container{
-      margin-top: 10%;
+      margin-top: 5%;
+  }
+  .card_container{
+    width: 100vh;
+    height: 50%;
+    border-radius: 25px;
+    padding: 15px;
   }
   .card_container h1{
       margin: 5px;
-      font-size: 35px;
+      font-size: clamp(1.2rem , 8vw , 2rem);
   }
   .card_container p{
       margin: 3px;
-      font-size: 20px;
-  }
+      font-size: clamp(0.5rem , 8vw , 1rem);
 }
+}
+
 @media screen and (max-width: 390px) {
   body {
       background-image: url('../app/UI-KIT/MobileIMG.png');
       background-position: top;
-      background-size: contain ;
+      background-size:cover;
+  }
+
+  .main_container p {
+
+    font-size: clamp(0.5rem , 5vw , 1.2rem);
+    margin-bottom: 0px;
+  }  
+  .main_container h2 {
+
+    font-size: clamp(0.5rem , 5vw , 1.2rem);
+  }
+
+  .header_container {
+    height: 10vw;
+    padding: 20px;
+  }
+
+  .header_container img {
+    width: 60px;
+    height: 25px;
+  }
+  
+  .button_google {
+    font-size: 0.9rem;
+    padding: 5px 10px ;
+  }
+
+  .button_responsive {
+    font-size: 0.9rem;
+    padding: 5px 10px ;
   }
   .footer_container{
       text-align: center;
@@ -193,15 +243,10 @@ body {
   .main_container{
       width: 190px;
   }
-  .main_container p{
-      font-size: 27px;
-  }
-  .main_container h2 {
-      font-size: 20px;
-      width: 155px;
-  }
   .line_main{
       display:inline-block;
+      width: 10%;
+      margin: 0;
   }
   .main_fixed{
       height: 320px;
@@ -222,4 +267,44 @@ body {
       margin: 0px;
       font-size: 16px;
   }
+
+}
+
+@media screen and (max-width: 320px){
+
+  .main_fixed{
+    height: 40vh;
+}
+.main_container p {
+
+  font-size: clamp(0.3rem , 4vw , 1rem);
+  margin-bottom: 0px;
+}  
+.main_container h2 {
+  font-size: clamp(0.3rem , 4vw , 1rem);
+}
+.card_landing_section {
+    margin-top: 100px;
+} 
+ .card_landing_container {
+    margin-top: -30%;
+    width: 65vh;
+}
+.main_container{
+    margin-top: 5%;
+}
+.card_container{
+  width: 100vh;
+  height: 50%;
+  border-radius: 15px;
+  padding: 10px;
+}
+.card_container h1{
+    margin: 5px;
+    font-size: clamp(0.2rem , 8vw , 0.8rem);
+}
+.card_container p{
+    margin: 3px;
+    font-size: clamp(0.2rem , 8vw , 0.7rem);
+}
 }
