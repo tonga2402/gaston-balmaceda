@@ -13,7 +13,6 @@ const SearchSection = ({ params }: SearchSectionProps) => {
   const [query] = useDebounce(text, 500);
   const pathname = usePathname();
 
-console.log(params)
   useEffect(() => {
     if (!query && pathname === "/dashboard/actividad") {
       router.push("/dashboard/actividad");

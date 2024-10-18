@@ -7,8 +7,8 @@ const page = ({
 }: {
   searchParams: { [key: string]: string };
 }) => {
-  const params = searchParams.search;
-  const filter = searchParams.filter
+  const params = searchParams?.search;
+  const filter = searchParams?.filter
 
   return (
     <div className="container_initialPage">
@@ -16,7 +16,7 @@ const page = ({
         <SearchSection params={params}/>
         <FilterSection />
       </div>
-      <ShowActivitySection params={params} />
+      <ShowActivitySection params={params} filter={filter}/>
     </div>
   );
 };

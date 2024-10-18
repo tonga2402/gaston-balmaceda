@@ -5,9 +5,10 @@ import ActivityContainer from "./ActivityContainer";
 
 type ShowActivitySectionProps = {
   params: string;
+  filter:string
 };
 export default async function ShowActivitySection({
-  params,
+  params,filter
 }: ShowActivitySectionProps) {
   const cookie = cookies();
   const authToken = cookie.get("Auth")?.value;

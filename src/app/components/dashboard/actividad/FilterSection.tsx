@@ -16,7 +16,9 @@ const FilterSection = () => {
   };
 
   const handleDeleteFilter = () => {
-    router.push(`/dashboard/actividad`)
+
+      router.push(`/dashboard/actividad?`)
+
     setShowFilter(false)
   }
 

@@ -30,7 +30,7 @@ export default  function CardActivity({
             </h5>
           </div>
           <div className="div_price">
-            <h5>-$ {newAmount}</h5>
+            <h5>$ {newAmount}</h5>
             <h6>{day} de {month} {year}</h6>
           </div>
         </div>
