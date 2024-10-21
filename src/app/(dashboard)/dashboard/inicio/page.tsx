@@ -8,7 +8,7 @@ const inicioPage = () => {
     <div className="container_initialPage">
       <InicioSection />
       <ButtonSection />
-      <SearchSection />
+      <SearchSection params=""/>
       <ActivitySection />
     </div>
   );
