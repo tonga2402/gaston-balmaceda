@@ -8,8 +8,7 @@ const FilterSection = () => {
   const router = useRouter();
   const [showFilter, setShowFilter] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
-  const [filter] = useDebounce(inputValue, 500);
-  const searchParams = useSearchParams();
+
 
   const handleShow = () => {
     setShowFilter(!showFilter);
@@ -17,17 +16,15 @@ const FilterSection = () => {
 
   const handleDeleteFilter = () => {
 
-      router.push(`/dashboard/actividad?`)
+      router.push(`/dashboard/actividad`)
 
     setShowFilter(false)
   }
 
   const handleFilter = () => {
-    if (!searchParams) {
-      router.push(`/dashboard/actividad?filter=${filter}`);
-    } else {
-      router.push(`/dashboard/actividad?${searchParams}&filter=${filter}`);
-    }
+   
+      router.push(`/dashboard/actividad?filter=${inputValue}`);
+
     setShowFilter(false);
   };
 
@@ -60,8 +57,9 @@ const FilterSection = () => {
                 type="radio"
                 id="1"
                 name="filter"
-                value="hoy"
+                value="1"
                 onChange={(e) => setInputValue(e.target.value)}
+                checked={inputValue === '1'}
               />
             </label>
             <label htmlFor="2">
@@ -70,8 +68,9 @@ const FilterSection = () => {
                 type="radio"
                 id="2"
                 name="filter"
-                value="ayer"
+                value="2"
                 onChange={(e) => setInputValue(e.target.value)}
+                checked={inputValue === '2'}
               />
             </label>
             <label htmlFor="3">
@@ -80,8 +79,9 @@ const FilterSection = () => {
                 type="radio"
                 id="3"
                 name="filter"
-                value="ultima semana"
+                value="7"
                 onChange={(e) => setInputValue(e.target.value)}
+                checked={inputValue === '7'}
               />
             </label>
             <label htmlFor="4">
@@ -90,8 +90,9 @@ const FilterSection = () => {
                 type="radio"
                 id="4"
                 name="filter"
-                value="15 dias"
+                value="15"
                 onChange={(e) => setInputValue(e.target.value)}
+                checked={inputValue === '15'}
               />
             </label>
             <label htmlFor="5">
@@ -100,8 +101,9 @@ const FilterSection = () => {
                 type="radio"
                 id="5"
                 name="filter"
-                value="mes"
+                value="31"
                 onChange={(e) => setInputValue(e.target.value)}
+                checked={inputValue === '31'}
               />
             </label>
             <label htmlFor="6">
@@ -110,8 +112,9 @@ const FilterSection = () => {
                 type="radio"
                 id="6"
                 name="filter"
-                value="ano"
+                value="365"
                 onChange={(e) => setInputValue(e.target.value)}
+                checked={inputValue === '365'}
               />
             </label>
             <button>Aplicar</button>

@@ -12,7 +12,7 @@ export default  function CardActivity({
 }: CardActivityProps) {
   const newAmount = new Intl.NumberFormat('es-AR').format(amount)
   const newDay = new Date(dated)
-  const day = newDay.getDay();
+  const day = newDay.getDate();
   const month = MESES[newDay.getMonth()];
   const year = newDay.getFullYear();
 
