@@ -5,10 +5,10 @@ import React from 'react'
 
 const ActividadId = ({
     params,
-
+    searchParams
 }: {
-    params: { actividadId: string };
-
+    params: { actividadId: string },
+    searchParams?: { [key: string]: string | undefined }
 }) => {
     return (
         <div className="container_initialPage">
@@ -16,7 +16,7 @@ const ActividadId = ({
                 <SearchSection params={params.actividadId} />
                 <FilterSection />
             </div>
-            <ShowActivitySection params={params.actividadId}  />
+            <ShowActivitySection params={params.actividadId} filter={searchParams ? searchParams.filter : undefined} />
         </div>
     )
 }

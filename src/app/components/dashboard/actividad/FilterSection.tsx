@@ -1,14 +1,13 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useState } from "react";
 import { IoOptionsOutline, IoChevronDown } from "react-icons/io5";
-import { useDebounce } from "use-debounce";
 
 const FilterSection = () => {
   const router = useRouter();
+  const pathname = usePathname()
   const [showFilter, setShowFilter] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
-
 
   const handleShow = () => {
     setShowFilter(!showFilter);
@@ -16,16 +15,20 @@ const FilterSection = () => {
 
   const handleDeleteFilter = () => {
 
-      router.push(`/dashboard/actividad`)
-
+    router.push(`${pathname}`)
     setShowFilter(false)
   }
 
   const handleFilter = () => {
-   
-      router.push(`/dashboard/actividad?filter=${inputValue}`);
+    if (pathname === `/dashboard/actividad`) {
 
+      router.push(`/dashboard/actividad?filter=${inputValue}`);
+      setShowFilter(false);
+
+    }
+    router.push(`${pathname}?filter=${inputValue}`);
     setShowFilter(false);
+
   };
 
   return (

@@ -23,7 +23,7 @@ const FormEmail = () => {
       <form action={handleEmail}>
         <div className="form_container">
           <h2>¡Hola! Ingresá tu e-mail</h2>
-          <input type="email" name="email" placeholder="Correo electrónico" />
+          <input type="email" name="email" placeholder="Correo electrónico" required/>
           <button className="button_responsive">
             {pending ? <BeatLoader color="black" size={10} /> : "Continuar"}
           </button>

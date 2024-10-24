@@ -37,8 +37,8 @@ export default async function ActivityShowFilter({
 
   const dataReverse = dataActivity.sort((a, b) => b.id - a.id)
   const newFilter = new Date()
-  const fechaNueva = newFilter.setDate(newFilter.getDate() - Number(filter))
-  const nuevoFilter = dataReverse.filter(ele => new Date(ele.dated) > new Date(fechaNueva))
+  const newDay = newFilter.setDate(newFilter.getDate() - Number(filter))
+  const newSearchFilter = dataReverse.filter(ele => new Date(ele.dated) > new Date(newDay))
 
 
 
@@ -47,7 +47,7 @@ export default async function ActivityShowFilter({
     <div className="container_activity">
       <h5>Tu actividad</h5>
       <ActivityContainer
-        data={filter ? nuevoFilter : dataActivity}
+        data={filter ? newSearchFilter : dataActivity}
         accountId={data.id}
       />
       <div className="div_arrow"></div>
