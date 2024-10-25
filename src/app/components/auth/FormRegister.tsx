@@ -1,24 +1,46 @@
 "use client";
 import React, { useState } from "react";
+import { useForm } from 'react-hook-form'
 import { useRouter } from "next/navigation";
-import { registerUser } from "@/actions/registerUser";
 import ButtonLogin from "./ButtonLogin";
-import InputRegister from "./InputRegister";
+import { z } from 'zod'
+import { zodResolver } from "@hookform/resolvers/zod";
+import { RegisterSchema } from "@/app/schema/register.schema";
+import { registerUser } from "@/actions/registerUser";
+import { AccessDeniedError } from "@/app/common/http.errors";
+
+
+type RegisterSchemaType = z.infer<typeof RegisterSchema>
 
 const FormRegister = () => {
-  const [error, setError] = useState<string | null>(null);
+
   const router = useRouter();
+
+  const [error, setError] = useState<string | null>(null)
+
+  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<RegisterSchemaType>({ resolver: zodResolver(RegisterSchema) })
+
+
+  const onSubmit = async (data: RegisterSchemaType) => {
+
+
+    try {
+      const result = await registerUser(data)
+      console.log(result)
+
+    } catch (e) {
+      if (e instanceof AccessDeniedError) {
+        setError('email ya registrado')
+      } else {
+        setError('ha ocurrido un error. Intente mas tarde')
+      }
+    }
+    return false
+  }
 
   return (
     <div>
-      <form
-        action={async (formData) => {
-          const res = await registerUser(formData);
-          if (res.ok) {
-            router.push('register/registerOk');
-          }
-          setError(res?.message);
-        }}
+      <form onSubmit={handleSubmit(onSubmit)}
       >
         <div className="register_form_container">
           <h2>Crear cuenta</h2>
@@ -27,61 +49,140 @@ const FormRegister = () => {
               <div className="flex_container">
                 <div className="InputText">
                   <input
+                    {...register('firstname')}
                     type="text"
-                    name="firstname"
                     placeholder="Nombre*"
-                    required
                   />
+                  {errors.firstname?.message && (
+                    <p
+                      style={{
+                        color: "red",
+                        fontStyle: "italic",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {errors.firstname.message}
+                    </p>
+                  )}
                 </div>
                 <div className="InputText">
                   <input
+                    {...register('lastname')}
                     type="text"
-                    name="lastname"
                     placeholder="Apellido*"
-                    required
                   />
+                  {errors.lastname?.message && (
+                    <p
+                      style={{
+                        color: "red",
+                        fontStyle: "italic",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {errors.lastname.message}
+                    </p>
+                  )}
                 </div>
               </div>
               <div className="flex_container">
                 <div className="InputText">
-                  <input type="number" name="dni" placeholder="DNI*" required />
+                  <input
+                    {...register('dni')}
+                    type="text"
+                    placeholder="DNI*" />
+                  {errors.dni?.message && (
+                    <p
+                      style={{
+                        color: "red",
+                        fontStyle: "italic",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {errors.dni.message}
+                    </p>
+                  )}
                 </div>
                 <div className="InputText">
                   <input
-                    type="text"
-                    name="email"
+                    {...register('email')}
+                    type="email"
                     placeholder="Correo electrónico*"
-                    required
                   />
+                  {errors.email?.message && (
+                    <p
+                      style={{
+                        color: "red",
+                        fontStyle: "italic",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {errors.email.message}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
-            <h3>
+            <h3 style={{ marginTop: '10px' }}>
               Usa entre 6 y 20 carácteres (debe contener al menos al menos 1
               carácter especial, una mayúscula y un número)
             </h3>
             <div className="grid_container">
               <div className="flex_container">
                 <div className="InputText">
-                  <InputRegister name={"password"} type={"password"} />
+                  <input
+                    {...register('password')}
+                    type="password"
+                    placeholder="Contraseña*"
+                  />
+                  {errors.password?.message && (
+                    <p
+                      style={{
+                        color: "red",
+                        fontStyle: "italic",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {errors.password.message}
+                    </p>
+                  )}
                 </div>
                 <div className="InputText">
                   <input
+                    {...register('confirmPassword')}
                     type="password"
-                    name="confirmPassword"
                     placeholder="Confirmar contraseña*"
-                    required
                   />
+                  {errors.confirmPassword?.message && (
+                    <p
+                      style={{
+                        color: "red",
+                        fontStyle: "italic",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {errors.confirmPassword.message}
+                    </p>
+                  )}
                 </div>
               </div>
               <div className="flex_container">
                 <div className="InputText">
                   <input
+                    {...register('phone')}
                     type="text"
-                    name="phone"
                     placeholder="Teléfono*"
-                    required
                   />
+                  {errors.phone?.message && (
+                    <p
+                      style={{
+                        color: "red",
+                        fontStyle: "italic",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {errors.phone.message}
+                    </p>
+                  )}
                 </div>
                 <div className="InputText">
                   <ButtonLogin />

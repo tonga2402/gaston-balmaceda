@@ -20,12 +20,13 @@
     "react-credit-cards-2": "^1.0.2",
     "react-devtools": "^5.3.1",
     "react-dom": "^18",
-    "react-hook-form": "^7.52.1",
+    "react-hook-form": "^7.53.1",
     "react-icons": "^5.2.1",
     "react-spinners": "^0.14.1",
     "sonner": "^1.5.0",
     "use-debounce": "^10.0.3",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "20.16.11",
