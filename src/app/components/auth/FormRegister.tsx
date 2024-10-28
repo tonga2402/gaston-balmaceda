@@ -7,8 +7,8 @@ import { z } from 'zod'
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RegisterSchema } from "@/app/schema/register.schema";
 import { registerUser } from "@/actions/registerUser";
-import { AccessDeniedError } from "@/app/common/http.errors";
-
+import { toast } from "sonner";
+import { BeatLoader } from "react-spinners";
 
 type RegisterSchemaType = z.infer<typeof RegisterSchema>
 
@@ -22,18 +22,15 @@ const FormRegister = () => {
 
 
   const onSubmit = async (data: RegisterSchemaType) => {
-
-
     try {
       const result = await registerUser(data)
-      console.log(result)
-
+      setError(null)
+      toast.success('Cuenta registrada con exito')
+      setTimeout(() => {
+        router.push('/login')
+      }, 2000)
     } catch (e) {
-      if (e instanceof AccessDeniedError) {
-        setError('email ya registrado')
-      } else {
-        setError('ha ocurrido un error. Intente mas tarde')
-      }
+      setError('email ya registrado')
     }
     return false
   }
@@ -185,7 +182,9 @@ const FormRegister = () => {
                   )}
                 </div>
                 <div className="InputText">
-                  <ButtonLogin />
+                  <button disabled={isSubmitting} className="button_responsive">
+                    {isSubmitting ? <BeatLoader color="black" size={10} /> : "Continuar"}
+                  </button>
                   {error && (
                     <p
                       style={{
