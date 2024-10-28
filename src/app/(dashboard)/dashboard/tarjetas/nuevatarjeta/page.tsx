@@ -16,6 +16,7 @@ export default async function NuevaTarjeta() {
   });
   const data: AccountType = await res.json();
 
+  console.log(token)
   return (
     <div className="container_newCard">
       <FormNewCard token={token ? token : ""} accountId={data.id} />

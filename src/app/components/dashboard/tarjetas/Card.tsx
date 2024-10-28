@@ -13,7 +13,7 @@ export default async function Card(cardData: CardTypeProps) {
     }
   );
   const data: CardType[] = await res.json();
-  console.log(data);
+
   if (data.length === 0) {
     <></>;
   }

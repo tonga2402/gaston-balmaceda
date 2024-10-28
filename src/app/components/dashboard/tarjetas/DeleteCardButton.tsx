@@ -12,7 +12,7 @@ const DeleteCardButton = ({
 
   const handleDelete = async () => {
     await fetch(
-      `${process.env.API_URL}/api/accounts/${accountId}/cards/${cardId}`,
+      `https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/cards/${cardId}`,
       {
         method: "DELETE",
         headers: {

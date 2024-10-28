@@ -38,6 +38,7 @@ const FormNewCard = ({ token, accountId }: CardTypeProps) => {
   };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+
     e.preventDefault();
     setLoading(true);
     const newCard = {
@@ -46,9 +47,10 @@ const FormNewCard = ({ token, accountId }: CardTypeProps) => {
       first_last_name: name,
       number_id: Number(number),
     };
+
     try {
       const res = await fetch(
-        `${process.env.API_URL}/api/accounts/${accountId}/cards`,
+        `https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/cards`,
         {
           method: "POST",
           headers: {
@@ -59,8 +61,11 @@ const FormNewCard = ({ token, accountId }: CardTypeProps) => {
         }
       );
       const data: CardType = await res.json();
+
       setLoading(false);
       setDataOk(true);
+      router.push('/dashboard/tarjetas')
+      router.refresh()
     } catch (error) {}
   };
   return (
