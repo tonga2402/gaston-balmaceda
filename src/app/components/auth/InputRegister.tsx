@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import InputText from "./InputText";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import { InputPasswordPropsType } from "@/app/types/auth.types";
 
 type InputPasswordProps = {
   name: string;

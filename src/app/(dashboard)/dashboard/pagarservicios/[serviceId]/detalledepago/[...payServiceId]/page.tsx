@@ -30,7 +30,6 @@ export default async function PayService({
   const data: DepositResponse = await res.json();
   const newDay = new Date(data.dated);
   const day = newDay.toLocaleDateString("es-AR");
-  console.log(params.payServiceId.length);
 
   return (
     <div className="container_initialPage">

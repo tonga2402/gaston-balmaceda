@@ -1,7 +1,6 @@
 import { cookies } from "next/headers";
 import { AccountType, ActivityType } from "@/app/types/dashboard.types";
 import ActivityContainer from "./ActivityContainer";
-import { MESES } from "@/app/const/Month";
 
 type ActivityShowFilterProps = {
   filter: string;

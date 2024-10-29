@@ -2,7 +2,6 @@ import { AccountType, CardType } from "@/app/types/dashboard.types";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { IoArrowForwardOutline } from "react-icons/io5";
-import { toast } from "sonner";
 
 const NewCard = async () => {
 
@@ -30,8 +29,6 @@ const NewCard = async () => {
     }
   );
   const data: CardType[] = await res.json();
-  console.log(data)
-
 
 
   return (

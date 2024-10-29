@@ -3,7 +3,6 @@ import Link from "next/link";
 import Logo from "@/app/UI-KIT/LogoLandingPage.png";
 import UserHeader from "./UserHeader";
 import { Suspense } from "react";
-import { MoonLoader } from "react-spinners";
 
 const HeaderDashboard = () => {
   return (

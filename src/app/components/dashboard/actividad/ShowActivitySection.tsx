@@ -1,5 +1,4 @@
 import { cookies } from "next/headers";
-import Activity from "../inicio/Activity";
 import { AccountType, ActivityType } from "@/app/types/dashboard.types";
 import ActivityContainer from "./ActivityContainer";
 

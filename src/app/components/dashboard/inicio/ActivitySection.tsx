@@ -3,7 +3,6 @@ import { IoArrowForwardOutline } from "react-icons/io5";
 import { cookies } from "next/headers";
 import Activity from "./Activity";
 import { AccountType } from "@/app/types/dashboard.types";
-import ShowActivitySection from "../actividad/ShowActivitySection";
 
 export default async function ActivitySection() {
   const cookie = cookies();

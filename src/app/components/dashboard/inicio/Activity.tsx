@@ -1,6 +1,4 @@
 import { ActivityType, CardTypeProps } from "@/app/types/dashboard.types";
-import CardActivity from "./CardActivity";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import ActivityContainer from "../actividad/ActivityContainer";
 
 export default async function Activity({ token, accountId }: CardTypeProps) {
