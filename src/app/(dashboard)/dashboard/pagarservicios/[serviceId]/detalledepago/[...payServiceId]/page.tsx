@@ -31,6 +31,8 @@ export default async function PayService({
   const newDay = new Date(data.dated);
   const day = newDay.toLocaleDateString("es-AR");
 
+
+  console.log(params)
   return (
     <div className="container_initialPage">
       <>

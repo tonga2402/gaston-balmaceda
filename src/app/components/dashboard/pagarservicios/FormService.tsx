@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AccountType,
   DepositResponse,
@@ -17,14 +17,16 @@ const FormService = ({
 }: FormServiceProps) => {
   const router = useRouter();
   const currentDate = new Date().toISOString();
-  const cardPay = localStorage.getItem("xcode");
+
   const [dataService, setDataService] = useState({
     amount: -invoiceValue,
     dated: currentDate,
     description: name,
   });
-  console.log(dataService);
+
+
   const handleTransaction = async () => {
+    const cardPay = (localStorage.getItem("xcode"))
     try {
       const res = await fetch(
         `https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/transactions`,
