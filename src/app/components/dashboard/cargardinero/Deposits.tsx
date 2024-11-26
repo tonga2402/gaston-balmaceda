@@ -18,10 +18,11 @@ const Deposits = ({ token, cvu, userId, id }: DepositsProps) => {
     origin: cvu,
   };
 
+  console.log(userId, id)
   const handleDeposite = async () => {
     localStorage.removeItem('xamount')
     const res = await fetch(
-      `https://digitalmoney.digitalhouse.com/api/accounts/8/deposits`,
+      `https://digitalmoney.digitalhouse.com/api/accounts/${id}/deposits`,
       {
         method: "POST",
         headers: {
