@@ -1,8 +1,16 @@
 import { ActivityType, UserType } from "@/app/types/dashboard.types";
-import { jwtDecode, JwtPayload } from "jwt-decode";
+import {jwtDecode, JwtPayload } from "jwt-decode";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { IoCheckmarkSharp } from "react-icons/io5";
+
+
+interface Auth0JwtPayload extends JwtPayload {
+  username: string;
+  email: string;
+  exp: number
+}
+
 
 export default async function ActivityDetail({
   params,
@@ -11,9 +19,9 @@ export default async function ActivityDetail({
 }) {
   const cookie = cookies();
   const authToken = cookie.get("Auth")?.value;
-  const token = authToken?.replace(/['"]+/g, "");
-  const user = jwtDecode<JwtPayload>(token as string);
-  const userId = user.username as number;
+  const token = authToken?.replace(/['"]+/g, "") as string;
+  const user = jwtDecode<Auth0JwtPayload>(token)
+  const userId = user.username ;
   const accountId = params.slug[0];
   const id = params.slug[1];
 
