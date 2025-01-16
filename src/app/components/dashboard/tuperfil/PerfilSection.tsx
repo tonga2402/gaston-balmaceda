@@ -3,13 +3,18 @@ import { cookies } from "next/headers";
 import FormPerfil from "./FormPerfil";
 import { UserType } from "@/app/types/dashboard.types";
 
+interface Auth0JwtPayload extends JwtPayload {
+  username: string;
+  email: string;
+  exp: number
+}
 
 export default async function PerfilSection() {
   const cookie = cookies();
   const tokenValue = cookie.get("Auth")?.value;
-  const token = tokenValue?.replace(/['"]+/g, "");
-  const user = jwtDecode<JwtPayload>(token as string);
-  const userId = user.username as number;
+  const token = tokenValue?.replace(/['"]+/g, "") as string;
+  const user = jwtDecode<Auth0JwtPayload>(token);
+  const userId = user.username;
 
   const res = await fetch(`${process.env.API_URL}/api/users/${userId}`, {
     method: "GET",
